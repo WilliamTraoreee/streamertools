@@ -1,0 +1,42 @@
+---
+import ButtonLink from '../../components/button-link.astro'
+import Layout from '../../components/layout.astro'
+import type { Tool } from '../../types/tool'
+
+const { slug } = Astro.params
+const tools = await Astro.glob('../../tools/*.ts')
+const tool: Tool = tools.find((t) => t.default.slug === slug)?.default
+
+if(!tool) {
+  return Astro.redirect('/404')
+}
+
+---
+
+<Layout>
+  <a href="/" class="mt-20 block text-dark-200 underline">&larr; Back to all tools</a>
+  <div class="mt-10">
+    <div class="flex justify-between items-center mb-10">
+      <div class="flex items-center gap-6">
+        <img src={tool.iconUrl} alt={tool.name} class="w-20 h-auto rounded-full">
+        <div>
+          <h1 class="text-3xl">{tool.name}</h1>
+          <h2 class="underline text-dark-200"><a href={tool.url}>{tool.urlDisplay}</a></h2>
+        </div>
+      </div>
+      <ButtonLink className="h-14 px-6 text-lg">Visit</ButtonLink>
+    </div>
+
+    <div class="screenshots">
+      {tool.screenshots.map((screen, index) => (
+        <img src={screen} alt={`${tool.name} screenshot #${index + 1}`} />
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import '../../utils/swiper/swiper.js'
+  import 'swiper/css'
+  const swiper = new Swiper('.screenshots')
+</script>

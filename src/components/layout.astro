@@ -1,0 +1,24 @@
+---
+import ButtonLink from '../components/button-link.astro'
+---
+
+<html lang="en" transition:animate="slide">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@600,900,700,400,500&display=swap" rel="stylesheet">
+		<title>StreamerTools</title>
+	</head>
+	<body class="font-sans bg-dark-500 text-white">
+
+		<header class="container mx-auto px-6 flex justify-between items-center h-20">
+			<a href="/"><img src="/logo.svg" alt="StreamerTools" class="w-36 h-auto"></a>
+			<ButtonLink color="primary" to="https://google.com">Add a tool</ButtonLink>
+		</header> 
+		<main class="container mx-auto px-6">
+			<slot />
+		</main>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+---
+const { to, color = 'primary', className = '' } = Astro.props
+
+const buttonColor = {
+  primary: 'bg-primary-500 text-white hover:bg-primary-400',
+  stroke: 'bg-dark-500 border border-dark-300 hover:bg-dark-400'
+}
+---
+
+<a href={to} class={`h-10 rounded px-3 font-medium text-sm items-center inline-flex transition-colors duration-150 text-center justify-center ${buttonColor[color as keyof typeof buttonColor]} ${className}`}>
+  <slot />
+</a>

@@ -1,0 +1,43 @@
+---
+const { className, type = 'normal', noClick, slot } = Astro.props
+
+const typeColor = {
+  free: 'bg-price-free',
+  paid: 'bg-price-paid',
+  twitch: 'bg-provider-twitch',
+  youtube: 'bg-provider-youtube',
+  kick: 'bg-provider-kick text-black',
+  facebook: 'bg-provider-facebook',
+  tiktok: 'bg-provider-tiktok',
+  x: 'bg-provider-x',
+  instagram: 'bg-provider-instagram',
+  linkedin: 'bg-provider-linkedin',
+  normal: 'bg-dark-500 border border-dark-300'
+}
+
+const slots = Astro.slots
+const nameTag = await slots.render('default')
+---
+<tag-name data-name={nameTag === '...' ? 'null' : nameTag}>
+  <button id={`tag-${nameTag}`} class={`h-6 text-xs font-medium rounded-full px-2 inline-flex items-center ${typeColor[type as keyof typeof typeColor]} ${nameTag === '...' ? 'cursor-default' : 'cursor-pointer'} ${className}`}>
+    <slot />
+  </button>
+</tag-name>
+
+<script>
+  class Tag extends HTMLElement {
+    constructor() {
+      super ();
+
+      const name = this.dataset.name
+      const tag = document.querySelector(`#tag-${name}`)
+
+      tag?.addEventListener('click', (e) => {
+        if(name === 'null') e.preventDefault()
+        console.log(name)
+      })
+    }
+  }
+
+  customElements.define('tag-name', Tag)
+</script>
