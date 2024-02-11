@@ -19,7 +19,7 @@ const slots = Astro.slots
 const nameTag = await slots.render('default')
 ---
 <tag-name data-name={nameTag === '...' ? 'null' : nameTag}>
-  <button id={`tag-${nameTag}`} class={`h-6 text-xs font-medium rounded-full px-2 inline-flex items-center ${typeColor[type as keyof typeof typeColor]} ${nameTag === '...' ? 'cursor-default' : 'cursor-pointer'} ${className}`}>
+  <button class={`h-6 text-xs font-medium rounded-full px-2 inline-flex items-center ${typeColor[type as keyof typeof typeColor]} ${nameTag === '...' ? 'cursor-default' : 'cursor-pointer'} ${className} tag-${nameTag}`}>
     <slot />
   </button>
 </tag-name>
@@ -30,7 +30,7 @@ const nameTag = await slots.render('default')
       super ();
 
       const name = this.dataset.name
-      const tag = document.querySelector(`#tag-${name}`)
+      const tag = document.querySelector(`.tag-${name}`)
 
       tag?.addEventListener('click', (e) => {
         if(name === 'null') e.preventDefault()
