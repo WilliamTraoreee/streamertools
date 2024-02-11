@@ -13,7 +13,7 @@ if(!tool) {
 
 ---
 
-<Layout>
+<Layout title={`${tool.name} | StreamerTools`} description={tool.description} image={tool.screenshots[0]} url={tool.urlDisplay}>
   <a href="/" class="mt-20 block text-dark-200 underline">&larr; Back to all tools</a>
   <div class="mt-10">
     <div class="flex justify-between items-center mb-10">
@@ -29,7 +29,7 @@ if(!tool) {
 
     <div class="screenshots">
       {tool.screenshots.map((screen, index) => (
-        <img src={screen} alt={`${tool.name} screenshot #${index + 1}`} />
+        <img src={screen} alt={`${tool.name} screenshot #${index + 1}`} loading="lazy" />
       ))}
     </div>
   </div>

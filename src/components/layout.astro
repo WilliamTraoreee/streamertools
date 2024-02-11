@@ -1,5 +1,8 @@
 ---
 import ButtonLink from '../components/button-link.astro'
+
+const { title, description, image, url } = Astro.props
+
 ---
 
 <html lang="en" transition:animate="slide">
@@ -9,7 +12,21 @@ import ButtonLink from '../components/button-link.astro'
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
     <link href="https://api.fontshare.com/v2/css?f[]=switzer@600,900,700,400,500&display=swap" rel="stylesheet">
-		<title>StreamerTools</title>
+		<title>{title}</title>
+		<meta name="descirption" content={description}  />
+		<meta name="og:title" content={title}/>
+		<meta name="og:description" content={description}/>
+		<meta name="og:image" content={image} />
+		<meta name="twitter:title" content={title}/>
+		<meta name="twitter:description" content={description}/>
+		<meta name="twitter:image" content="/images/og.png"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:creator" content="@streali"/>
+		<meta name="twitter:site" content="@willtraore"/>
+		<meta name="twitter:domain" content={url}/>
+		<meta name="twitter:image:alt" content={title}/>
+		<meta name="twitter:creator:id" content="@willtraore"/>
+		<meta name="twitter:site:id" content="@willtraore"/>
 	</head>
 	<body class="font-sans bg-dark-500 text-white">
 
