@@ -1,7 +1,8 @@
 import type { Tool } from '../types/tool';
 
 const tool: Tool = {
-	iconUrl: 'https://avatars.githubusercontent.com/u/109690726?s=200&v=4',
+	iconUrl:
+		'https://yt3.googleusercontent.com/ytc/AIf8zZTPtJR7c4VwPE8MNC2AGs8YQwQwbRiwetHHrAMPVA=s176-c-k-c0x00ffffff-no-rj',
 	name: 'CameraFi Live',
 	slug: 'camerafi_live',
 	url: 'https://www.camerafi.com/camerafi-live/',
