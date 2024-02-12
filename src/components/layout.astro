@@ -31,10 +31,14 @@ const { title, description, image, url } = Astro.props
 
 		<header class="container mx-auto px-6 flex justify-between items-center h-20">
 			<a href="/"><img src="/logo.svg" alt="StreamerTools" class="w-36 h-auto"></a>
-			<ButtonLink color="primary" to="https://google.com">Add a tool</ButtonLink>
+			<ButtonLink color="primary" to="https://github.com/WilliamTraoreee/streamertools">Add a tool</ButtonLink>
 		</header> 
 		<main class="container mx-auto px-6">
 			<slot />
 		</main>
+		<footer class="py-10 text-center">
+			<p class="text-sm">Created by <a target="_blank" href="https://x.com/willtraore" class="text-primary-400 underline">@willtraore</a></p>
+			<p class="text-sm">This project is open-source and available on <a target="_blank" href="https://github.com/WilliamTraoreee/streamertools" class="text-primary-400 underline">Github</a></p>
+		</footer>
 	</body>
 </html>
