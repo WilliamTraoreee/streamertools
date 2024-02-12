@@ -1,6 +1,6 @@
 ---
 import ButtonLink from '../components/button-link.astro'
-
+import '../app.css'
 const { title, description, image, url } = Astro.props
 
 ---
@@ -11,7 +11,6 @@ const { title, description, image, url } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-    <link href="https://api.fontshare.com/v2/css?f[]=switzer@600,900,700,400,500&display=swap" rel="stylesheet">
 		<title>{title}</title>
 		<meta name="description" content={description}  />
 		<meta name="og:title" content={title}/>

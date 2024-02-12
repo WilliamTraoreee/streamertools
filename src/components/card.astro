@@ -2,12 +2,11 @@
 import ButtonLink from './button-link.astro';
 import PriceTag from './price-tag.astro';
 import ProviderTag from './provider-tag.astro';
-import Tag from './tag.astro';
 
-const { iconUrl, name, url, urlDisplay, description, prices, providers, tags, slug } = Astro.props
+const { iconUrl, name, url, urlDisplay, description, prices, providers, slug } = Astro.props
 ---
 
-<div class="p-6 bg-dark-400 rounded-lg">
+<div class="p-6 bg-dark-400 rounded-lg border border-dark-300">
   <div class="flex justify-between items-center mb-6">
     <a href={`/tools/${slug}`}><img src={iconUrl} alt={name} class="rounded-full w-10"></a>
     <div class="text-right">
@@ -15,11 +14,11 @@ const { iconUrl, name, url, urlDisplay, description, prices, providers, tags, sl
       <h4 class="text-dark-200 underline -mt-0.5 text-sm"><a href={url}>{urlDisplay}</a></h4>
     </div>
   </div>
-  <div class="bg-dark-500 rounded-lg text-sm p-3 mb-3  w-full h-16 overflow-hidden">
-    <p class="line-clamp-2 overflow-hidden w-full">{description}</p>
+  <div class="bg-dark-500 rounded-lg text-sm p-3 mb-3  w-full h-22 overflow-hidden">
+    <p class="line-clamp-3 overflow-hidden w-full">{description}</p>
   </div>
   
-  <div class="flex gap-1 items-center">
+  <div class="flex gap-1 items-center justify-between">
     <PriceTag prices={prices} />
     <ProviderTag providers={providers} />
   </div>
