@@ -3,24 +3,24 @@ import Card from './card';
 import { useSignal, useComputed } from '@preact/signals';
 
 const providers = [
-	{ name: 'twitch', className: 'bg-provider-twitch', icon: 'twitch-fill' },
-	{ name: 'youtube', className: 'bg-provider-youtube', icon: 'youtube-fill' },
-	{ name: 'kick', className: 'bg-provider-kick', icon: 'kick-fill' },
+	{ name: 'twitch', className: '!bg-provider-twitch', icon: 'twitch-fill' },
+	{ name: 'youtube', className: '!bg-provider-youtube', icon: 'youtube-fill' },
+	{ name: 'kick', className: '!bg-provider-kick', icon: 'kick-fill' },
 	{
 		name: 'facebook',
-		className: 'bg-provider-facebook',
+		className: '!bg-provider-facebook',
 		icon: 'facebook-fill',
 	},
-	{ name: 'tiktok', className: 'bg-provider-tiktok', icon: 'tiktok-fill' },
-	{ name: 'x', className: 'bg-provider-x', icon: 'twitter-x-fill' },
+	{ name: 'tiktok', className: '!bg-provider-tiktok', icon: 'tiktok-fill' },
+	{ name: 'x', className: '!bg-provider-x', icon: 'twitter-x-fill' },
 	{
 		name: 'instagram',
-		className: 'bg-provider-instagram',
+		className: '!bg-provider-instagram',
 		icon: 'instagram-fill',
 	},
 	{
 		name: 'linkedin',
-		className: 'bg-provider-linkedin',
+		className: '!bg-provider-linkedin',
 		icon: 'linkedin-fill',
 	},
 ];
@@ -88,7 +88,7 @@ export default function Tools(props: Props) {
 							key={provider.name}
 							class={`w-8 sm:w-12 rounded-full text-lg h-8 sm:h-12 font-medium transition-colors duration-200 flex justify-center items-center relative group hover:bg-dark-300 ${
 								providerFilter.value === provider.name
-									? '!bg-primary-500'
+									? provider.className
 									: 'bg-dark-400'
 							}`}
 							onClick={() => (providerFilter.value = provider.name)}

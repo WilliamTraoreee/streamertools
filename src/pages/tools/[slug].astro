@@ -29,6 +29,12 @@ if(!tool) {
       <ButtonLink external to={tool.url} className="h-14 px-6 text-lg w-full lg:w-auto">Visit</ButtonLink>
     </div>
 
+    <div class="flex gap-1 flex-wrap mb-5">
+      {tool.tags.map((tag) => (
+        <span class="border border-dark-300 rounded-full px-3 py-1 text-sm">{tag}</span>
+      ))}
+    </div>
+
     <p class="text-2xl mb-10">{tool.description}</p>
 
     <div class="bg-dark-500 rounded-lg mb-10 p-5 flex gap-5 flex-col md:flex-row">
