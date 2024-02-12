@@ -1,5 +1,5 @@
 ---
-const { to, color = 'primary', className = '' } = Astro.props
+const { to, color = 'primary', className = '', external = false } = Astro.props
 
 const buttonColor = {
   primary: 'bg-primary-500 text-white hover:bg-primary-400',
@@ -7,6 +7,6 @@ const buttonColor = {
 }
 ---
 
-<a href={to} class={`h-10 rounded px-3 font-medium text-sm items-center inline-flex transition-colors duration-150 text-center justify-center ${buttonColor[color as keyof typeof buttonColor]} ${className}`}>
+<a href={to} class={`h-10 rounded px-3 font-medium text-sm items-center inline-flex transition-colors duration-150 text-center justify-center ${buttonColor[color as keyof typeof buttonColor]} ${className}`} target={external ? '_blank' : '_self'}>
   <slot />
 </a>

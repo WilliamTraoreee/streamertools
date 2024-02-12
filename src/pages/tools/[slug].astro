@@ -1,6 +1,8 @@
 ---
 import ButtonLink from '../../components/button-link.astro'
 import Layout from '../../components/layout.astro'
+import PriceTag from '../../components/price-tag.astro'
+import ProviderTag from '../../components/provider-tag.astro'
 import type { Tool } from '../../types/tool'
 
 const { slug } = Astro.params
@@ -14,9 +16,9 @@ if(!tool) {
 ---
 
 <Layout title={`${tool.name} | StreamerTools`} description={tool.description} image={tool.screenshots[0]} url={tool.urlDisplay}>
-  <a href="/" class="mt-20 block text-dark-200 underline">&larr; Back to all tools</a>
+  <a href="/" class="mt-10 lg:mt-20 block text-dark-200 underline">&larr; Back to all tools</a>
   <div class="mt-10">
-    <div class="flex justify-between items-center mb-10">
+    <div class="flex justify-between lg:items-center mb-10 flex-col lg:flex-row gap-5">
       <div class="flex items-center gap-6">
         <img src={tool.iconUrl} alt={tool.name} class="w-20 h-auto rounded-full">
         <div>
@@ -24,19 +26,26 @@ if(!tool) {
           <h2 class="underline text-dark-200"><a href={tool.url}>{tool.urlDisplay}</a></h2>
         </div>
       </div>
-      <ButtonLink className="h-14 px-6 text-lg">Visit</ButtonLink>
+      <ButtonLink external to={tool.url} className="h-14 px-6 text-lg w-full lg:w-auto">Visit</ButtonLink>
     </div>
 
-    <div class="screenshots">
+    <p class="text-2xl mb-10">{tool.description}</p>
+
+    <div class="bg-dark-500 rounded-lg mb-10 p-5 flex gap-5 flex-col md:flex-row">
+      <section class="flex-1 flex justify-between border border-dark-300 p-3 rounded items-center">
+        <p class="font-medium">Price</p>
+        <PriceTag prices={tool.prices} />
+      </section>
+      <section class="flex-1 flex justify-between border border-dark-300 p-3 rounded items-center">
+        <p class="font-medium">Available on</p>
+        <ProviderTag providers={tool.providers} />
+      </section>
+    </div>
+
+    <div class="screenshots grid grid-cols-1 md:grid-cols-2 gap-6">
       {tool.screenshots.map((screen, index) => (
-        <img src={screen} alt={`${tool.name} screenshot #${index + 1}`} loading="lazy" />
+        <img src={screen} alt={`${tool.name} screenshot #${index + 1}`} loading="lazy" class="rounded-lg" />
       ))}
     </div>
   </div>
 </Layout>
-
-<script>
-  import '../../utils/swiper/swiper.js'
-  import 'swiper/css'
-  const swiper = new Swiper('.screenshots')
-</script>
