@@ -9,7 +9,7 @@ const tool: Tool = {
 	description:
 		'Streali is a streaming marketplace where you can find chat theme, music player or alert and install it in a minute',
 	prices: ['free', 'paid'],
-	providers: ['twitch', 'youtube', 'linkedin', 'x'],
+	providers: ['twitch', 'youtube', 'linkedin', 'x', 'kick', 'tiktok'],
 	tags: ['chat', 'music', 'spotify', 'labels', 'web'],
 	screenshots: [
 		'https://i.ibb.co/qjY1N51/Capture-d-e-cran-2024-02-11-a-18-24-03.png',

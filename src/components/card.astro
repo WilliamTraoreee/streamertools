@@ -1,5 +1,7 @@
 ---
 import ButtonLink from './button-link.astro';
+import PriceTag from './price-tag.astro';
+import ProviderTag from './provider-tag.astro';
 import Tag from './tag.astro';
 
 const { iconUrl, name, url, urlDisplay, description, prices, providers, tags, slug } = Astro.props
@@ -13,37 +15,15 @@ const { iconUrl, name, url, urlDisplay, description, prices, providers, tags, sl
       <h4 class="text-dark-200 underline -mt-0.5 text-sm"><a href={url}>{urlDisplay}</a></h4>
     </div>
   </div>
-  <div class="bg-dark-500 rounded-lg text-sm p-3 mb-3">{description}</div>
-  <div class="flex justify-between items-center py-2 border-b border-white/10">
-    <span class="font-medium text-xs">Price</span>
-    <div class="flex gap-0.5">
-      {[...prices].map((price) => ( 
-        <Tag type={price}>{price}</Tag>
-      ))}
-    </div>
+  <div class="bg-dark-500 rounded-lg text-sm p-3 mb-3  w-full h-16 overflow-hidden">
+    <p class="line-clamp-2 overflow-hidden w-full">{description}</p>
   </div>
-  <div class="flex justify-between items-center py-2 border-b border-white/10">
-    <span class="font-medium text-xs">Available on</span>
-    <div class="flex gap-1">
-      {[...providers].splice(0,2).map((provider) => ( 
-        <Tag type={provider}>{provider}</Tag>
-      ))}
-      {[...providers].length > 2 && (
-        <Tag>...</Tag>
-      )}
-    </div>
+  
+  <div class="flex gap-1 items-center">
+    <PriceTag prices={prices} />
+    <ProviderTag providers={providers} />
   </div>
-  <div class="flex justify-between items-center py-2 border-b border-white/10">
-    <span class="font-medium text-xs">Tags</span>
-    <div class="flex gap-0.5">
-      {[...tags].splice(0,2).map((tag) => ( 
-        <Tag>{tag}</Tag>
-      ))}
-      {[...tags].length > 2 && (
-        <Tag>...</Tag>
-      )}
-    </div>
-  </div>
+
   <div class="flex gap-2">
     <ButtonLink to={`/tools/${slug}`} color="stroke" className="w-full mt-3">Info</ButtonLink>
     <ButtonLink to={url} className="w-full mt-3">Visit</ButtonLink>
