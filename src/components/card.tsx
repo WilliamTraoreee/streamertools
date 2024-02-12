@@ -1,4 +1,7 @@
 import type { Tool } from '../types/tool';
+import ButtonLink from './button-link';
+import PriceTag from './price-tag';
+import ProviderTag from './provider-tag';
 
 interface Props extends Tool {}
 
@@ -6,7 +9,6 @@ export default function Card(props: Props) {
 	const {
 		name,
 		description,
-		tags,
 		slug,
 		iconUrl,
 		url,
@@ -41,15 +43,23 @@ export default function Card(props: Props) {
 				<p class='line-clamp-3 overflow-hidden w-full'>{description}</p>
 			</div>
 
-			{/* <div class="flex gap-1 items-center justify-between">
-    <PriceTag prices={prices} />
-    <ProviderTag providers={providers} />
-  </div>
+			<div class='flex gap-1 items-center justify-between'>
+				<PriceTag prices={prices} />
+				<ProviderTag providers={providers} />
+			</div>
 
-  <div class="flex gap-2">
-    <ButtonLink to={`/tools/${slug}`} color="stroke" className="w-full mt-3">Info</ButtonLink>
-    <ButtonLink to={url} className="w-full mt-3">Visit</ButtonLink>
-  </div> */}
+			<div class='flex gap-2'>
+				<ButtonLink
+					to={`/tools/${slug}`}
+					color='stroke'
+					className='w-full mt-3'
+				>
+					Info
+				</ButtonLink>
+				<ButtonLink to={url} className='w-full mt-3'>
+					Visit
+				</ButtonLink>
+			</div>
 		</div>
 	);
 }
