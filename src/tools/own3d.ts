@@ -12,7 +12,6 @@ const tool: Tool = {
 	providers: ['twitch', 'youtube', 'kick'],
 	tags: ['overlays', 'assets', 'emotes', 'alerts'],
 	screenshots: [
-		'https://i.ibb.co/qjY1N51/Capture-d-e-cran-2024-02-11-a-18-24-03.png',
 		'https://i.ibb.co/84mSBSx/Capture-d-cran-2024-02-12-150607.png',
 	],
 };
