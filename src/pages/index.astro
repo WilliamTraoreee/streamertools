@@ -1,7 +1,9 @@
 ---
 const tools = await Astro.glob('../tools/*.ts')
-import Card from '../components/card.astro';
 import Layout from '../components/layout.astro'
+import Tools from '../components/tools';
+import type { Tool } from '../types/tool';
+const formattedTools: Tool[] = tools.map((tool) => tool.default)
 ---
 
 <Layout title="StreamerTools | All the tools you need to step up your stream" description="StreamerTools is curated streamers tools to help you to find the best way to enhance you stream experience" image="https://streamertools.app/og.jpg">
@@ -9,9 +11,5 @@ import Layout from '../components/layout.astro'
 		<h1 class="font-bold text-3xl md:text-5xl lg:text-7xl mb-5">The best tools<br />for your streams</h1>
 		<h2>Curated tools to enhance your stream</h2>
 	</div>
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		{tools.map((tool) => (
-			<Card {...tool.default} />
-		))}
-	</div>
+	<Tools tools={formattedTools} client:visible />
 </Layout>
