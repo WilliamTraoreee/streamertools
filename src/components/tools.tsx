@@ -1,7 +1,6 @@
 import type { Price, Provider, Tool } from '../types/tool';
 import Card from './card';
 import { useSignal, useComputed } from '@preact/signals';
-import { Icon } from '@iconify/react';
 
 const providers = [
 	{ name: 'twitch', className: 'bg-provider-twitch', icon: 'twitch-fill' },
@@ -94,7 +93,7 @@ export default function Tools(props: Props) {
 							}`}
 							onClick={() => (providerFilter.value = provider.name)}
 						>
-							<Icon icon={`ri:${provider.icon}`} />
+							<i class={`ri-${provider.icon}`}></i>
 							<span class='absolute top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 text-xs uppercase bg-black px-1 py-0.5 font-semibold'>
 								{provider.name}
 							</span>
@@ -105,7 +104,7 @@ export default function Tools(props: Props) {
 
 			<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
 				{filteredTools.value.map((tool) => (
-					<Card {...tool} />
+					<Card {...tool} key={tool.name} />
 				))}
 			</div>
 		</div>
