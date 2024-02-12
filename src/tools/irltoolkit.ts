@@ -5,7 +5,7 @@ const tool: Tool = {
 	name: 'IRLToolKit',
 	slug: 'irltoolkit',
 	url: 'https://irltoolkit.com/',
-	urlDisplay: 'irltoolkit.com/',
+	urlDisplay: 'irltoolkit.com',
 	description:
 		'OBS instance hosted in datacenter with webApp interface to configure and easy connection for IRL streaming. Ensure to not cut the stream if you lost mobile network during stream.',
 	prices: ['paid'],

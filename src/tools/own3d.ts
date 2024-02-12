@@ -5,7 +5,7 @@ const tool: Tool = {
 	name: 'Own3d',
 	slug: 'own3d',
 	url: 'https://www.own3d.tv',
-	urlDisplay: 'www.own3d.tv',
+	urlDisplay: 'own3d.tv',
 	description:
 		'Plateform to purchase overlays and graphic assets for streaming. Overlays, emotes, alerts, etc',
 	prices: ['paid'],

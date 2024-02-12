@@ -1,8 +1,9 @@
 import type { Tool } from '../types/tool';
 
 const tool: Tool = {
-	iconUrl: 'https://sparkle.bot/_next/image?url=%2Fassets%2Fsparkle-icon.png&w=48&q=100',
-	name: 'Spakle',
+	iconUrl:
+		'https://sparkle.bot/_next/image?url=%2Fassets%2Fsparkle-icon.png&w=48&q=100',
+	name: 'Sparkle',
 	slug: 'sparkle',
 	url: 'https://sparkle.bot',
 	urlDisplay: 'sparkle.bot',
