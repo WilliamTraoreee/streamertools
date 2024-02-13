@@ -3,7 +3,7 @@ import type { Tool } from '../types/tool';
 const tool: Tool = {
 	iconUrl: 'https://wiki.streamer.bot/logos/streamerbot.png',
 	name: 'streamer.bot',
-	slug: 'streamer.bot',
+	slug: 'streamer-bot',
 	url: 'https://streamer.bot/',
 	urlDisplay: 'streamer.bot',
 	description:
