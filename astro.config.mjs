@@ -9,7 +9,7 @@ const getToolsSitemap = () => {
 	const toolsUrl = 'https://streamerstools.app/tools';
 	const allTools = fs.readdirSync('./src/tools/');
 	return allTools
-		? allTools.map((tool) => `${toolsUrl}/${tool.split('.')[0]}`)
+		? allTools.map((tool) => `${toolsUrl}/${tool.split('.')[0]}/`)
 		: [];
 };
 
