@@ -1,7 +1,7 @@
 import type { Tool } from '../types/tool';
 
 const tool: Tool = {
-	iconUrl: 'https://avatars.githubusercontent.com/u/109690726?s=200&v=4',
+	iconUrl: 'https://avatars.githubusercontent.com/u/780600?s=96&v=4',
 	name: 'Face Tracker',
 	slug: 'face-tracker',
 	url: 'https://github.com/norihiro/obs-face-tracker',
@@ -11,10 +11,7 @@ const tool: Tool = {
 	prices: ['free'],
 	providers: [],
 	tags: ['OBS', 'plugin'],
-	screenshots: [
-		'https://i.ibb.co/qjY1N51/Capture-d-e-cran-2024-02-11-a-18-24-03.png',
-		'https://i.ibb.co/Bw2gKb1/Capture-d-e-cran-2024-02-11-a-18-24-39.png',
-	],
+	screenshots: [],
 };
 
 export default tool;

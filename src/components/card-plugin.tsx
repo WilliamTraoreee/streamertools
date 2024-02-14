@@ -5,7 +5,7 @@ import ProviderTag from './provider-tag';
 
 interface Props extends Tool {}
 
-export default function Card(props: Props) {
+export default function CardPlugin(props: Props) {
 	const {
 		name,
 		description,
@@ -19,8 +19,8 @@ export default function Card(props: Props) {
 
 	return (
 		<div class='p-6 bg-dark-400 rounded-lg border border-dark-300'>
-			<div class='flex justify-between items-center mb-6'>
-				<a href={`/tools/${slug}`}>
+			<div class='flex justify-between items-center mb-6 gap-3'>
+				<a href={`/plugins/${slug}`} class='shrink-0'>
 					<img
 						src={iconUrl}
 						alt={name}
@@ -31,7 +31,7 @@ export default function Card(props: Props) {
 					/>
 				</a>
 				<div class='text-right w-[calc(100%_-_60px)]'>
-					<a href={`/tools/${slug}`}>
+					<a href={`/plugins/${slug}`}>
 						<h3 class='text-xl font-medium'>{name}</h3>
 					</a>
 					<h4 class='text-dark-200 underline -mt-0.5 text-sm truncate'>
@@ -45,12 +45,11 @@ export default function Card(props: Props) {
 
 			<div class='flex gap-1 items-center justify-between'>
 				<PriceTag prices={prices} />
-				<ProviderTag providers={providers} />
 			</div>
 
 			<div class='flex gap-2'>
 				<ButtonLink
-					to={`/tools/${slug}`}
+					to={`/plugins/${slug}`}
 					color='stroke'
 					className='w-full mt-3'
 				>
