@@ -1,47 +1,70 @@
-# Astro Starter Kit: Minimal
+# Streamertools
 
-```sh
-npm create astro@latest -- --template minimal
+Available on https://streamertools.app/
+
+Streamertools is an open source website where you can find all the best tools for livestream.
+Twitch, Kick, Youtube, Tiktok, find the best to enhance your streaming experience.
+
+## Start the project
+
+```bash
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Build the project
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Add a tool
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To add a tool, you just need to create a file in the `./src/tools` directory with this template
 
-Any static assets, like images, can be placed in the `public/` directory.
+```typescript
+import type { Tool } from '../types/tool';
 
-## 🧞 Commands
+const tool: Tool = {
+	iconUrl: 'https://example.com/example.jpg', // 1:1 format
+	name: 'Example',
+	slug: 'example', // Same as your tool file name
+	url: 'https://example.com/',
+	urlDisplay: 'example.com',
+	description: 'Tool description',
+	prices: ['free', 'paid'],
+	providers: ['twitch', 'youtube', 'tiktok'],
+	tags: ['chat', 'music', 'tool', 'software'],
+	screenshots: [
+		'https://example.com/example.jpg',
+		'https://example.com/example.jpg',
+	],
+};
 
-All commands are run from the root of the project, from a terminal:
+export default tool;
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Add an OBS plugin
 
-## 👀 Want to learn more?
+To add an OBS plugin, you just need to create a file in the `./src/obs` directory with this template
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```typescript
+import type { Tool } from '../types/tool';
+
+const tool: Tool = {
+	iconUrl: 'https://example.com/example.jpg', // 1:1 format
+	name: 'Example',
+	slug: 'example', // Same as your obs plugin file name
+	url: 'https://example.com/',
+	urlDisplay: 'example.com',
+	description: 'Plugin description',
+	prices: ['free', 'paid'],
+	providers: ['twitch', 'youtube', 'tiktok'],
+	tags: ['chat', 'music', 'tool', 'software'],
+	screenshots: [
+		'https://example.com/example.jpg',
+		'https://example.com/example.jpg',
+	],
+};
+
+export default tool;
+```
