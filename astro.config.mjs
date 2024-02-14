@@ -13,13 +13,21 @@ const getToolsSitemap = () => {
 		: [];
 };
 
+const getPluginsSitemap = () => {
+	const toolsUrl = 'https://streamertools.app/plugins';
+	const allTools = fs.readdirSync('./src/plugins/');
+	return allTools
+		? allTools.map((tool) => `${toolsUrl}/${tool.split('.')[0]}/`)
+		: [];
+};
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://streamertools.app',
 	integrations: [
 		tailwind(),
 		sitemap({
-			customPages: getToolsSitemap(),
+			customPages: [...getToolsSitemap(), ...getPluginsSitemap()],
 		}),
 		preact({
 			compat: true,
