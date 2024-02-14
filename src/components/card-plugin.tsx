@@ -39,7 +39,7 @@ export default function CardPlugin(props: Props) {
 					</h4>
 				</div>
 			</div>
-			<div class='bg-dark-500 rounded-lg text-sm p-3 mb-3  w-full h-22 overflow-hidden'>
+			<div class='bg-dark-500 rounded-lg text-sm p-3 mb-3  w-full h-[5.2rem] overflow-hidden'>
 				<p class='line-clamp-3 overflow-hidden w-full'>{description}</p>
 			</div>
 
