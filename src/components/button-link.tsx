@@ -4,7 +4,7 @@ interface Props {
 	to: string;
 	color?: string;
 	className?: string;
-	external?: string;
+	external?: boolean;
 	children: ReactNode;
 }
 
