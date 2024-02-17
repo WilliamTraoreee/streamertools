@@ -6,7 +6,7 @@ import type { Gear, Gears } from '../../../types/gear'
 const { slug } = Astro.params
 const mixers = await Astro.glob('../../../gears/audio-mixers/*.ts')
 const formattedMixers: Gears = mixers.map((gear) => gear.default)
-const gear: Gear = formattedMixers.find((g) => g.slug === slug)
+const gear = formattedMixers.find((g) => g.slug === slug) as Gear
 
 if(!gear) {
   return Astro.redirect('/404')

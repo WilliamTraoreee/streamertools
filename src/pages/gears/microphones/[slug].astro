@@ -2,11 +2,10 @@
 import ButtonLink from '../../../components/button-link'
 import Layout from '../../../components/layout.astro'
 import type { Microphone } from '../../../types/gear'
-
 const { slug } = Astro.params
 const mics = await Astro.glob('../../../gears/microphones/*.ts')
 const formattedMics = mics.map((mic) => mic.default)
-const mic: Microphone = formattedMics.find((m) => m.slug === slug)
+const mic = formattedMics.find((m) => m.slug === slug) as Microphone
 
 if(!mic) {
   return Astro.redirect('/404')

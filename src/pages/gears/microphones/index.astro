@@ -1,8 +1,7 @@
 ---
 import GearGrid from '../../../components/gear-grid.astro';
 import Layout from '../../../components/layout.astro'
-import Mics from '../../../components/mics.astro';
-import { Microphones } from '../../../types/gear';
+import type { Microphones } from '../../../types/gear';
 const mics = await Astro.glob('../../../gears/microphones/*.ts')
 const formattedMics: Microphones = mics.map((mic) => mic.default)
 const usb = formattedMics.filter((mic) => mic.type === 'usb')

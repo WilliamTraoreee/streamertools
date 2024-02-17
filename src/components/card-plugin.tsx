@@ -1,21 +1,11 @@
 import type { Tool } from '../types/tool';
 import ButtonLink from './button-link';
 import PriceTag from './price-tag';
-import ProviderTag from './provider-tag';
 
 interface Props extends Tool {}
 
 export default function CardPlugin(props: Props) {
-	const {
-		name,
-		description,
-		slug,
-		iconUrl,
-		url,
-		urlDisplay,
-		prices,
-		providers,
-	} = props;
+	const { name, description, slug, iconUrl, url, urlDisplay, prices } = props;
 
 	return (
 		<div class='p-6 bg-dark-400 rounded-lg border border-dark-300'>

@@ -1,30 +1,6 @@
 import type { Price, Provider, Tool } from '../types/tool';
-import Card from './card';
 import { useSignal, useComputed } from '@preact/signals';
 import CardPlugin from './card-plugin';
-
-const providers = [
-	{ name: 'twitch', className: '!bg-provider-twitch', icon: 'twitch-fill' },
-	{ name: 'youtube', className: '!bg-provider-youtube', icon: 'youtube-fill' },
-	{ name: 'kick', className: '!bg-provider-kick', icon: 'kick-fill' },
-	{
-		name: 'facebook',
-		className: '!bg-provider-facebook',
-		icon: 'facebook-fill',
-	},
-	{ name: 'tiktok', className: '!bg-provider-tiktok', icon: 'tiktok-fill' },
-	{ name: 'x', className: '!bg-provider-x', icon: 'twitter-x-fill' },
-	{
-		name: 'instagram',
-		className: '!bg-provider-instagram',
-		icon: 'instagram-fill',
-	},
-	{
-		name: 'linkedin',
-		className: '!bg-provider-linkedin',
-		icon: 'linkedin-fill',
-	},
-];
 
 interface Props {
 	tools: Tool[];
