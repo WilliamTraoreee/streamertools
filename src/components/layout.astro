@@ -30,11 +30,15 @@ import 'remixicon/fonts/remixicon.css'
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<script defer data-domain="streamertools.app" src="https://plausible.io/js/script.js"></script>
 	</head>
-	<body class="font-sans bg-dark-500 text-white">
-
+	<body class="font-sans bg-dark-500 text-white group">
 		<header class="container mx-auto px-6 flex justify-between items-center h-20">
-			<a href="/" class="flex-1"><img src="/logo.svg" alt="StreamerTools" class="w-36 h-auto"></a>
-			<nav class="flex-1 flex justify-center gap-5 font-semibold">
+			<div class="flex-1 flex items-center gap-6">
+				<a href="/"><img src="/logo.svg" alt="StreamerTools" class="w-36 h-auto shrink-0"></a>
+				<button id="toggle-menu" class="w-12 h-12 rounded-full bg-dark-600 border border-dark-300 flex items-center justify-center lg:hidden shrink-0">
+					<i class="ri-menu-line"></i>
+				</button>
+			</div>
+			<nav class="fixed -top-80 left-2 lg:static w-[calc(100vw_-_1rem)] lg:flex-1 flex-none flex justify-center gap-5 font-semibold flex-col lg:flex-row items-center bg-dark-600 lg:bg-none p-4 lg:p-0 border lg:border-none border-dark-300 rounded-lg opacity-0 lg:opacity-100 transition-all duration-300 z-50">
 				<a href="/" class="hover:text-primary-500">Tools</a>
 				<a href="/plugins" class="hover:text-primary-500">OBS plugins</a>
 				<a href="/gears/microphones" class="hover:text-primary-500">Gears</a>
@@ -50,6 +54,11 @@ import 'remixicon/fonts/remixicon.css'
 			<p class="text-sm">Created by <a target="_blank" href="https://x.com/willtraore" class="text-white underline">@willtraore</a></p>
 			<p class="text-sm">This project is open-source and available on <a target="_blank" href="https://github.com/WilliamTraoreee/streamertools" class="text-white underline">Github</a></p>
 		</footer>
-
 	</body>
 </html>
+
+<script>
+	document.getElementById('toggle-menu').addEventListener('click', () => {
+		document.body.classList.toggle('display-nav')
+	})
+</script>
