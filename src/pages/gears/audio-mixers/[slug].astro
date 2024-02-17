@@ -1,0 +1,32 @@
+---
+import ButtonLink from '../../../components/button-link'
+import Layout from '../../../components/layout.astro'
+import type { Gear, Gears } from '../../../types/gear'
+
+const { slug } = Astro.params
+const mixers = await Astro.glob('../../../gears/audio-mixers/*.ts')
+const formattedMixers: Gears = mixers.map((gear) => gear.default)
+const gear: Gear = formattedMixers.find((g) => g.slug === slug)
+
+if(!gear) {
+  return Astro.redirect('/404')
+}
+
+---
+
+<Layout title={`${gear.name} | StreamerTools`} description={gear.description} image={gear.imageUrl} url={`https://streamertools.app/gears/microphones/${gear.slug}`}>
+  <a href="/gears/microphones-stands" class="mt-10 lg:mt-20 block text-dark-200 underline">&larr; Back to all microphones stands</a>
+  <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="w-full aspect-square bg-white rounded-lg flex items-center justify-center p-6">
+      <img src={gear.imageUrl} alt={gear.name} class='max-h-full w-auto'>
+    </div>
+    <div>
+      <h1 class="text-3xl lg:text-5xl font-semibold">{gear.name}</h1>
+      <h2 class="text-2xl text-dark-200">{gear.price}€</h2>
+      <ButtonLink to={gear.url} className='w-full mt-3 mb-6' external>
+        Buy on Amazon
+      </ButtonLink>
+      <p class="text-sm">{gear.description}</p>
+    </div>
+  </div>
+</Layout>

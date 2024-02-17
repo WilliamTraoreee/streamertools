@@ -1,0 +1,13 @@
+---
+import CardGear from "./card-gear";
+const { gears, catName, path, choice } = Astro.props
+---
+
+<div class="flex-1">
+ {catName && <h4 class="font-semibold mb-3 w-full bg-black border border-dark-400 px-3 py-2 rounded-lg">{catName}</h4>}
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 mb-6">
+    {gears.sort((a: any, b: any) => a.price - b.price).map((gear: any) => (
+      <CardGear gear={gear} path={path} choice={choice.includes(gear.slug)} />
+    ))}
+  </div>
+</div>
