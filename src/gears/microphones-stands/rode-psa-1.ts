@@ -1,4 +1,4 @@
-import type { Gear, Microphone } from '../../types/gear';
+import type { Gear } from '../../types/gear';
 
 const stand: Gear = {
 	name: 'Rode PSA1',

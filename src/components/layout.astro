@@ -58,7 +58,11 @@ import 'remixicon/fonts/remixicon.css'
 </html>
 
 <script>
-	document.getElementById('toggle-menu').addEventListener('click', () => {
+	const toggleBtn = document.getElementById('toggle-menu')
+
+	if(!toggleBtn) return
+
+	toggleBtn.addEventListener('click', () => {
 		document.body.classList.toggle('display-nav')
 	})
 </script>

@@ -1,7 +1,7 @@
 ---
 import GearGrid from '../../../components/gear-grid.astro';
 import Layout from '../../../components/layout.astro'
-import { Gear } from '../../../types/gear';
+import type { Gears } from '../../../types/gear';
 const gears = await Astro.glob('../../../gears/webcams/*.ts')
 const formattedGears: Gears = gears.map((gear) => gear.default)
 

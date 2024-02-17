@@ -7,7 +7,7 @@ export interface Gear {
 	description: string;
 }
 
-export type Gears = Gears[];
+export type Gears = Gear[];
 
 export interface Microphone extends Gear {
 	type: 'usb' | 'xlr';
