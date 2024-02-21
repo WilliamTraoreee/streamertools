@@ -1,5 +1,6 @@
 ---
 import GearGrid from '../../../components/gear-grid.astro';
+import GearNav from '../../../components/gear-nav.astro';
 import Layout from '../../../components/layout.astro'
 import type { Gears } from '../../../types/gear';
 const gears = await Astro.glob('../../../gears/cameras-stands/*.ts')
@@ -15,16 +16,7 @@ const choice = ['smallrig', 'tarion-arm', 'tarion-air-arm']
 	</div>
 
   <div class="flex gap-6 flex-col lg:flex-row">
-    <div class="bg-dark-600 border border-dark-400 rounded-lg p-3 w-full lg:w-[300px] shrink-0 h-fit flex flex-col gap-1">
-      <a href="/gears/microphones" class="px-3 h-10 inline-flex bg-dark-400 hover:bg-dark-300 w-full rounded text-sm items-center">Microphones</a>
-      <a href="/gears/microphones-stands" class="px-3 h-10 inline-flex bg-dark-400 hover:bg-dark-400 w-full rounded text-sm items-center transition-colors duration-200">Microphones stands</a>
-      <a href="/gears/audio-mixers" class="px-3 h-10 inline-flex bg-dark-400 w-full rounded text-sm items-center hover:bg-dark-300 transition-colors duration-200">Audio mixers</a>
-      <a href="/gears/webcams" class="px-3 h-10 inline-flex bg-dark-400 hover:bg-dark-300 w-full rounded text-sm items-center  transition-colors duration-200">Webcams</a>
-      <a href="/gears/cameras" class="px-3 h-10 inline-flex bg-dark-400 hover:bg-dark-300  w-full rounded text-sm items-center transition-colors duration-200">Cameras</a>
-      <a href="/gears/cameras-stands" class="px-3 h-10 inline-flex bg-primary-500 w-full rounded text-sm items-center  transition-colors duration-200">Cameras stands</a>
-      <a href="/gears/lights" class="px-3 h-10 inline-flex bg-dark-400 w-full rounded text-sm items-center hover:bg-dark-300 transition-colors duration-200">Lights</a>
-      
-    </div>
+    <GearNav />
     
     <div>
       <GearGrid gears={formattedGears}  path="cameras-stands" choice={choice} />

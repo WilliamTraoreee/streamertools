@@ -1,0 +1,20 @@
+---
+const nav = [
+  { path: '/gears/microphones', name: 'Microphones' },
+  { path: '/gears/microphones-stands', name: 'Microphones stands' },
+  { path: '/gears/audio-mixers', name: 'Audio mixers' },
+  { path: '/gears/webcams', name: 'Webcams' },
+  { path: '/gears/cameras', name: 'Cameras' },
+  { path: '/gears/cameras-stands', name: 'Cameras stands' },
+  { path: '/gears/capture-cards', name: 'Capture cards' },
+  { path: '/gears/lights', name: 'Lights' },
+]
+
+const currentPath = Astro.url.pathname
+---
+
+<div class="bg-dark-600 border border-dark-400 rounded-lg p-3 w-full lg:w-[300px] shrink-0 h-fit flex flex-col gap-1">
+  {nav.map((item) => (
+    <a href={item.path} class={`px-3 h-10 inline-flex w-full rounded text-sm items-center ${currentPath === item.path ? 'bg-primary-500' : 'bg-dark-400 hover:bg-dark-300'}`}>{item.name}</a>
+  ))}
+</div>

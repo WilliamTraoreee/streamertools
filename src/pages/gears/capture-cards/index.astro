@@ -3,16 +3,16 @@ import GearGrid from '../../../components/gear-grid.astro';
 import GearNav from '../../../components/gear-nav.astro';
 import Layout from '../../../components/layout.astro'
 import type { Gears } from '../../../types/gear';
-const gears = await Astro.glob('../../../gears/webcams/*.ts')
+const gears = await Astro.glob('../../../gears/capture-cards/*.ts')
 const formattedGears: Gears = gears.map((gear) => gear.default)
 
-const choice = ['logitech-c920', 'elgato-facecam-pro', 'insta-360-link']
+const choice = ['elgato-camlink']
 ---
 
 <Layout title="Webcams | StreamerTools" description="StreamerTools find the best webcams for your budget to improve your stream" image="https://streamertools.app/og.jpg">
 	<div class="text-center py-10 md:py-20">
-		<h1 class="font-bold text-3xl md:text-5xl lg:text-7xl mb-5">The best webcams for your stream setup</h1>
-		<h2>Find a webcam that fit your budget and your needs</h2>
+		<h1 class="font-bold text-3xl md:text-5xl lg:text-7xl mb-5">The best capture cards for your stream setup</h1>
+		<h2>Find a capture card that fit your budget and your needs</h2>
 	</div>
 
   <div class="flex gap-6 flex-col lg:flex-row">
