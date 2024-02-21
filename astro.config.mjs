@@ -77,6 +77,14 @@ const getWebcamsSitemap = () => {
 		: [];
 };
 
+const getCaptureCardsSitemap = () => {
+	const toolsUrl = 'https://streamertools.app/gears/capture-cards';
+	const allTools = fs.readdirSync('./src/gears/capture-cards/');
+	return allTools
+		? allTools.map((tool) => `${toolsUrl}/${tool.split('.')[0]}/`)
+		: [];
+};
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://streamertools.app',
@@ -93,6 +101,7 @@ export default defineConfig({
 				...getCamerasStandsSitemap(),
 				...getMicrophonesStandsSitemap(),
 				...getWebcamsSitemap(),
+				...getCaptureCardsSitemap(),
 			],
 		}),
 		preact({
