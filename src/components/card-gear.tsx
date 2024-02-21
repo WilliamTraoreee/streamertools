@@ -10,6 +10,8 @@ interface Props {
 export default function CardGear(props: Props) {
 	const { gear, path, choice } = props;
 
+	console.log(path);
+
 	return (
 		<div class='p-3 bg-dark-400 rounded-lg border border-dark-300 relative'>
 			{choice && (
