@@ -1,0 +1,29 @@
+import { BaseSchema } from '@adonisjs/lucid/schema'
+
+export default class extends BaseSchema {
+  protected tableName = 'tools'
+
+  async up() {
+    this.schema.createTable(this.tableName, (table) => {
+      table.uuid('id').primary()
+
+      table.timestamp('created_at', { useTz: false }).notNullable()
+      table.timestamp('updated_at', { useTz: false }).notNullable()
+
+      table.string('icon_url').notNullable()
+      table.string('name').notNullable()
+      table.string('description').notNullable()
+      table.string('url').notNullable()
+      table.enum('prices', ['free', 'paid']).notNullable()
+      table.jsonb('providers').notNullable().defaultTo([])
+      table.jsonb('tags').notNullable().defaultTo([])
+      table.jsonb('screenshots').notNullable().defaultTo([])
+      table.string('slug').notNullable()
+      table.enum('status', ['pending', 'approved', 'rejected']).notNullable().defaultTo('pending')
+    })
+  }
+
+  async down() {
+    this.schema.dropTable(this.tableName)
+  }
+}
