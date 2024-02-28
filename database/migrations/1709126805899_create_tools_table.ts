@@ -20,6 +20,9 @@ export default class extends BaseSchema {
       table.jsonb('screenshots').notNullable().defaultTo([])
       table.string('slug').notNullable()
       table.enum('status', ['pending', 'approved', 'rejected']).notNullable().defaultTo('pending')
+      table.uuid('user_id').references('id').inTable('users').onDelete('CASCADE').notNullable()
+
+      table.unique(['slug'])
     })
   }
 

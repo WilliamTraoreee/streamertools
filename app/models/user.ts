@@ -1,30 +1,38 @@
+import Tool from '#models/tool'
 import { DateTime } from 'luxon'
-import { withAuthFinder } from '@adonisjs/auth'
-import hash from '@adonisjs/core/services/hash'
-import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, beforeCreate, column, hasMany } from '@adonisjs/lucid/orm'
+import type { UUID } from '#types/common'
+import { randomUUID } from 'node:crypto'
+import type { ProviderData } from '#types/user'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 
-const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
-  uids: ['email'],
-  passwordColumnName: 'password',
-})
-
-export default class User extends compose(BaseModel, AuthFinder) {
+export default class User extends BaseModel {
   @column({ isPrimary: true })
-  declare id: number
-
-  @column()
-  declare fullName: string | null
-
-  @column()
-  declare email: string
-
-  @column()
-  declare password: string
+  declare id: UUID
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime | null
+  declare updatedAt: DateTime
+
+  @column()
+  declare email: string
+
+  @column()
+  declare provider: string
+
+  @column()
+  declare providerId: string
+
+  @column()
+  declare providerData: ProviderData
+
+  @hasMany(() => Tool)
+  declare tools: HasMany<typeof Tool>
+
+  @beforeCreate()
+  static async createUUID(user: User) {
+    user.id = randomUUID() as UUID
+  }
 }

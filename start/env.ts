@@ -34,5 +34,14 @@ export default await Env.create(new URL('../', import.meta.url), {
   DB_PORT: Env.schema.number(),
   DB_USER: Env.schema.string(),
   DB_PASSWORD: Env.schema.string.optional(),
-  DB_DATABASE: Env.schema.string()
+  DB_DATABASE: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for @rlanz/ally-twitch
+  |----------------------------------------------------------
+  */
+  TWITCH_CLIENT_ID: Env.schema.string(),
+  TWITCH_CLIENT_SECRET: Env.schema.string(),
+  TWITCH_CALLBACK_URL: Env.schema.string(),
 })
