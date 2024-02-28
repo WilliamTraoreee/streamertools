@@ -40,6 +40,7 @@ export default class AuthController {
       provider: 'twitch',
       providerId: socialUser.id,
       providerData,
+      role: 'user',
     })
 
     session.put('authenticated_user', user.id)

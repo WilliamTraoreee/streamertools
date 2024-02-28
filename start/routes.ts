@@ -8,6 +8,7 @@ const AuthController = () => import('#controllers/auth_controller')
 
 router.get('/', ({ inertia }) => inertia.render('home', { version: 6 }))
 router.get('/login', ({ inertia }) => inertia.render('login'))
+router.get('/tools/add', ({ inertia }) => inertia.render('tools/add'))
 
 router.get('/auth/twitch', [AuthController, 'redirect'])
 router.get('/auth/twitch/callback', [AuthController, 'callback'])

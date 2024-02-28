@@ -3,7 +3,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, beforeCreate, column, hasMany } from '@adonisjs/lucid/orm'
 import type { UUID } from '#types/common'
 import { randomUUID } from 'node:crypto'
-import type { ProviderData } from '#types/user'
+import type { ProviderData, Role } from '#types/user'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 export default class User extends BaseModel {
@@ -30,6 +30,9 @@ export default class User extends BaseModel {
 
   @hasMany(() => Tool)
   declare tools: HasMany<typeof Tool>
+
+  @column()
+  declare role: Role
 
   @beforeCreate()
   static async createUUID(user: User) {

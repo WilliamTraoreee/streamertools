@@ -14,6 +14,7 @@ export default class extends BaseSchema {
       table.string('provider').notNullable()
       table.string('provider_id').notNullable()
       table.jsonb('provider_data').notNullable()
+      table.enum('role', ['user', 'admin']).notNullable().defaultTo('user')
     })
   }
 

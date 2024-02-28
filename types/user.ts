@@ -7,3 +7,5 @@ export type ProviderData = {
     refresh_token: string
   }
 }
+
+export type Role = 'user' | 'admin'

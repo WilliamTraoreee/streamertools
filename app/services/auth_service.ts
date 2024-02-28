@@ -1,12 +1,13 @@
 import User from '#models/user'
 import db from '@adonisjs/lucid/services/db'
-import type { ProviderData } from '#types/user'
+import type { ProviderData, Role } from '#types/user'
 
 type UserCreate = {
   email: string
   provider: string
   providerId: string
   providerData: ProviderData
+  role: Role
 }
 
 export default class AuthService {
