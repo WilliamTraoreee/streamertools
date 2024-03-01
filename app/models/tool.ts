@@ -47,7 +47,7 @@ export default class Tool extends BaseModel {
   declare status: Status
 
   @belongsTo(() => User)
-  declare user: BelongsTo<typeof User>
+  declare userId: BelongsTo<typeof User>
 
   @beforeCreate()
   static async createUUID(tool: Tool) {

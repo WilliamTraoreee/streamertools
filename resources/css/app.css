@@ -41,3 +41,10 @@ body {
     }
   }
 }
+
+.border-gradient-active {
+  &:before {
+    background: rgb(40, 104, 230);
+    background: linear-gradient(180deg, rgba(40, 104, 230, 1) 0%, rgba(29, 29, 29, 1) 100%);
+  }
+}

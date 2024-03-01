@@ -1,5 +1,7 @@
-import React, { type FormEvent } from 'react'
+import type { FormEvent } from 'react'
 import { useForm } from '@inertiajs/react'
+import { Input } from '../../components/forms/input'
+import { Button } from '../..//components/button'
 
 export default function CreateTool() {
   const { data, setData, post, processing, errors } = useForm({
@@ -20,20 +22,39 @@ export default function CreateTool() {
 
   return (
     <div>
-      <form onSubmit={submit}>
-        <input type="text" value={data.name} onChange={(e) => setData('name', e.target.value)} />
-        <input
+      <form
+        onSubmit={submit}
+        className="w-full px-6 mx-auto flex flex-col gap-4"
+        lg="w-[800px] mt-10"
+      >
+        <Input
+          label="Tool name"
+          type="text"
+          value={data.name}
+          onChange={(e) => setData('name', e.target.value)}
+          errorMessage={errors.name}
+        />
+        <Input
+          label="Description"
           type="text"
           value={data.description}
           onChange={(e) => setData('description', e.target.value)}
         />
-        <input
+        <Input
+          label="Icon URL"
           type="text"
           value={data.iconUrl}
           onChange={(e) => setData('iconUrl', e.target.value)}
         />
-        <input type="text" value={data.url} onChange={(e) => setData('url', e.target.value)} />
-        <button type="submit">Ajouter</button>
+        <Input
+          label="URL"
+          type="text"
+          value={data.url}
+          onChange={(e) => setData('url', e.target.value)}
+        />
+        <div className="w-full flex justify-end mt-10">
+          <Button type="submit">Ajouter</Button>
+        </div>
       </form>
     </div>
   )
