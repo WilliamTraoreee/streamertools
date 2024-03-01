@@ -3,8 +3,19 @@ import { createToolValidator } from '#validators/tool'
 import type { HttpContext } from '@adonisjs/core/http'
 import string from '@adonisjs/core/helpers/string'
 import { Providers } from '../../types/providers.js'
+import { AllToolsPresenter } from '../presenters/tool.js'
+import { inject } from '@adonisjs/core'
 
+@inject()
 export default class ToolsController {
+  constructor(private allToolsPresenter: AllToolsPresenter) {}
+
+  async index({ inertia }: HttpContext) {
+    const tools = await Tool.query().where('status', 'approved').orderBy('name', 'asc')
+
+    return inertia.render('home', { tools: this.allToolsPresenter.json(tools) })
+  }
+
   async create({ request, response, session }: HttpContext) {
     const user = session.get('authenticated_user')
 
@@ -13,8 +24,6 @@ export default class ToolsController {
     }
 
     const payload = await request.validateUsing(createToolValidator)
-
-    console.log(payload)
 
     await Tool.create({
       ...payload,
@@ -26,6 +35,6 @@ export default class ToolsController {
       status: 'pending',
     })
 
-    return response.redirect('/tools')
+    return response.redirect('/')
   }
 }

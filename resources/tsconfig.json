@@ -9,14 +9,14 @@
     "moduleResolution": "Bundler",
     "paths": {
       "@/*": ["./*"],
-      "~/*": ["../*"],
+      "~/*": ["../*"]
     },
     "resolveJsonModule": true,
     "types": ["vite/client"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": ["./**/*.ts", "./**/*.tsx", "app.tsx.stub"],
+  "include": ["./**/*.ts", "./**/*.tsx", "app.tsx.stub", "../types/tool.ts"]
 }

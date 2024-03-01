@@ -1,18 +1,35 @@
-import { Head, Link } from '@inertiajs/react'
+import type { Tool } from '../../types/tool'
+import { Button } from '../components/button'
+import { Head } from '@inertiajs/react'
 
-export default function Home(props: { version: number }) {
+interface Props {
+  tools: Tool[]
+}
+
+export default function Home(props: Props) {
+  const { tools } = props
+
   return (
     <>
-      <Head title="Homepage" />
+      <Head>
+        <title>Tools</title>
+      </Head>
 
-      <div className="container">
-        <div className="title">AdonisJS {props.version} x Inertia x React</div>
+      <div className="py-40 w-full" lg="w-1/2">
+        <h1 className="font-black text-6xl mb-5">
+          Discover the best tools to upgrade your stream.
+        </h1>
+        <h2 className="text-gray mb-10">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non lacus at orci commodo
+          bibendum a non mauris. Sed pellentesque nisi sit amet erat tempor consectetur.
+        </h2>
+        <Button>Submit a tool</Button>
+      </div>
 
-        <span>
-          Learn more about AdonisJS and Inertia.js by visiting the{' '}
-          <a href="https://docs.adonisjs.com/inertia">AdonisJS documentation</a>.
-        </span>
-        <Link href="/test">Test</Link>
+      <div>
+        {tools.map((tool) => (
+          <p key={tool.id}>{tool.name}</p>
+        ))}
       </div>
     </>
   )

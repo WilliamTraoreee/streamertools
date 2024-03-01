@@ -3,7 +3,7 @@ import router from '@adonisjs/core/services/router'
 const ToolsController = () => import('#controllers/tools_controller')
 const AuthController = () => import('#controllers/auth_controller')
 
-router.get('/', ({ inertia }) => inertia.render('home', { version: 6 }))
+router.get('/', [ToolsController, 'index'])
 router.get('/login', ({ inertia }) => inertia.render('login'))
 router.get('/tools/add', ({ inertia }) => inertia.render('tools/add'))
 

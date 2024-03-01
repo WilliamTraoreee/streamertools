@@ -11,7 +11,7 @@ const appName = import.meta.env.VITE_APP_NAME || 'StreamerTools'
 createInertiaApp({
   progress: { color: '#5468FF' },
 
-  title: (title) => `${title} - ${appName}`,
+  title: (title) => `${title} | ${appName}`,
 
   resolve: (name) => {
     const pages = import.meta.glob('./pages/**/*.tsx', { eager: true })
