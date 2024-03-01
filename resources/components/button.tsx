@@ -16,7 +16,7 @@ const buttonColorClassName = {
 
 const buttonSizeClassName = {
   normal: 'h-10 px-4',
-  large: 'h-20 px-6',
+  large: 'h-16 px-8',
 }
 
 export function Button(props: Props) {

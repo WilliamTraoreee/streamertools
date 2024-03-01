@@ -8,3 +8,12 @@ export class AllToolsPresenter {
     }))
   }
 }
+
+export class SingleToolPresenter {
+  json(tool: Tool) {
+    return {
+      ...tool.toJSON(),
+      displayUrl: new URL(tool.url).hostname,
+    }
+  }
+}

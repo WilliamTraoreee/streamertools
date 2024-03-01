@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react'
 
 export function Footer() {
   return (
-    <footer className="flex justify-center items-center flex-col text-center gap-10 pt-20">
+    <footer className="flex justify-center items-center flex-col text-center gap-10 pt-20 pb-10">
       <Link href="/" classID="mb-5 block">
         <img src="/assets/streamertools.svg" alt="StreamerTools" loading="lazy" />
       </Link>

@@ -10,8 +10,6 @@ interface Props {
 export function CardTool(props: Props) {
   const { tool } = props
 
-  console.log(tool)
-
   return (
     <div className="p-4 bg-dark border-gradient">
       <div className="gap-6 flex items-center mb-6">
