@@ -1,3 +1,4 @@
+import { CardTool } from '../components/cards/card-tool'
 import type { Tool } from '../../types/tool'
 import { Button } from '../components/button'
 import { Head } from '@inertiajs/react'
@@ -26,9 +27,9 @@ export default function Home(props: Props) {
         <Button>Submit a tool</Button>
       </div>
 
-      <div>
+      <div className="grid grid-cols-1 gap-10" sm="grid-cols-2" lg="grid-cols-3" xl="grid-cols-4">
         {tools.map((tool) => (
-          <p key={tool.id}>{tool.name}</p>
+          <CardTool key={tool.id} tool={tool} />
         ))}
       </div>
     </>

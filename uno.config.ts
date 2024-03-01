@@ -15,6 +15,7 @@ export default defineConfig({
         normal: '#CBE628',
         dark: '#A5BE10',
       },
+      dark: '#1D1D1D',
     },
   },
 })

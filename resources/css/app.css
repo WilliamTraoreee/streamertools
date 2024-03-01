@@ -6,8 +6,38 @@ body {
   background-color: #111314;
   background-image: url('/assets/background.webp');
   background-size: contain;
-  background-position: top;
+  background-position: top right;
   background-repeat: no-repeat;
   width: 100dvw;
   height: 100dvh;
+}
+
+.border-gradient {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: rgb(53, 53, 53);
+    background: linear-gradient(180deg, rgba(53, 53, 53, 1) 0%, rgba(29, 29, 29, 1) 100%);
+    transition: all 0.3s linear;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      background: rgb(40, 104, 230);
+      background: linear-gradient(180deg, rgba(40, 104, 230, 1) 0%, rgba(29, 29, 29, 1) 100%);
+    }
+  }
 }

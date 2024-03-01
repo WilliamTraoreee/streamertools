@@ -38,7 +38,7 @@ export function Header() {
               </Link>
             </li>
           </ul>
-          <Button color="secondary" link="/login">
+          <Button variant="secondary" link="/login">
             Login
           </Button>
         </nav>

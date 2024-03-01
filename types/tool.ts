@@ -9,6 +9,7 @@ export interface Tool {
   name: string
   description: string
   url: string
+  displayUrl: string
   prices: ('free' | 'paid')[]
   providers: Providers
   tags: string[]
