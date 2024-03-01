@@ -1,10 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
 
-html,
 body {
-  height: 100%;
-  width: 100%;
+  font-family: 'Satoshi', sans-serif;
+  color: #fff;
+  background-color: #111314;
+  background-image: url('/assets/background.webp');
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100dvw;
+  height: 100dvh;
 }

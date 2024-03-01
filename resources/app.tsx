@@ -1,10 +1,12 @@
 import './css/app.css'
+import '@unocss/reset/tailwind.css'
 import 'virtual:uno.css'
 
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
+import { Layout } from './components/layout/layout'
 
-const appName = import.meta.env.VITE_APP_NAME || 'AdonisJS'
+const appName = import.meta.env.VITE_APP_NAME || 'StreamerTools'
 
 createInertiaApp({
   progress: { color: '#5468FF' },
@@ -18,6 +20,10 @@ createInertiaApp({
 
   setup({ el, App, props }) {
     const root = createRoot(el)
-    root.render(<App {...props} />)
+    root.render(
+      <Layout>
+        <App {...props} />
+      </Layout>
+    )
   },
 })

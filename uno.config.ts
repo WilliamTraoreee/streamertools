@@ -1,7 +1,20 @@
 import { defineConfig } from 'unocss'
-import presetUno from '@unocss/preset-uno'
-import presetAttributify from '@unocss/preset-attributify'
+import { presetAttributify, presetUno } from 'unocss'
 
 export default defineConfig({
   presets: [presetUno(), presetAttributify()],
+  theme: {
+    colors: {
+      primary: {
+        light: '#538BF6',
+        normal: '#2868E6',
+        dark: '#0E46B3',
+      },
+      secondary: {
+        light: '#E8FE68',
+        normal: '#CBE628',
+        dark: '#A5BE10',
+      },
+    },
+  },
 })
