@@ -9,3 +9,14 @@ export type Provider =
   | 'linkedin'
 
 export type Providers = Provider[]
+
+export const providersList: Providers = [
+  'twitch',
+  'youtube',
+  'kick',
+  'facebook',
+  'tiktok',
+  'x',
+  'instagram',
+  'linkedin',
+]

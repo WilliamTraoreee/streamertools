@@ -3,6 +3,7 @@ import { useForm } from '@inertiajs/react'
 import { Input } from '../../components/forms/input'
 import { Button } from '../../components/button'
 import TagInput from '../../components/forms/tag-input'
+import ProviderSelect from '../../components/forms/provider-select'
 
 export default function CreateTool() {
   const { data, setData, post, processing, errors } = useForm({
@@ -55,6 +56,13 @@ export default function CreateTool() {
           value={data.url}
           onChange={(e) => setData('url', e.target.value)}
         />
+
+        <ProviderSelect
+          label="Available on"
+          currentProviders={[]}
+          onProviderChange={(providers) => setData('providers', providers)}
+        />
+
         <TagInput label="Tags" currentTags={[]} onTagChange={(tags) => setData('tags', tags)} />
         <div className="w-full flex justify-end mt-10">
           <Button type="submit">Ajouter</Button>
