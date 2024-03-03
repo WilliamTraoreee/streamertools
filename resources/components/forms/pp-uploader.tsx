@@ -72,7 +72,7 @@ export function PPUploader(props: Props) {
           onOpenChange={(isOpen) => setOpen(isOpen)}
           contentClassName="relative overflow-hidden"
           trigger={
-            <p className="inline-flex bg-primary-normal font-bold px-3 h-10 items-center rounded cursor-pointer">
+            <p className="inline-flex bg-secondary-normal font-bold px-3 h-10 items-center rounded cursor-pointer text-black">
               Upload an image
             </p>
           }
@@ -102,7 +102,7 @@ export function PPUploader(props: Props) {
           {croppedImg && !loading && (
             <div className="flex justify-center mt-3">
               <p
-                className="inline-flex bg-secondary-normal font-bold px-3 h-10 items-center rounded text-black cursor-pointer"
+                className="inline-flex bg-secondary-normal font-bold px-3 h-10 items-center rounded text-black cursor-pointer text-black"
                 onClick={handleUpload}
               >
                 Upload

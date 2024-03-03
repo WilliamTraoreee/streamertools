@@ -5,6 +5,7 @@ import { Button } from '../../components/button'
 import TagInput from '../../components/forms/tag-input'
 import ProviderSelect from '../../components/forms/provider-select'
 import { PPUploader } from '../../components/forms/pp-uploader'
+import { MultipleImageUploader } from '../../components/forms/multiple-image-uploader'
 
 export default function CreateTool() {
   const { data, setData, post, errors } = useForm({
@@ -60,6 +61,10 @@ export default function CreateTool() {
         />
 
         <TagInput label="Tags" currentTags={[]} onTagChange={(tags) => setData('tags', tags)} />
+        <MultipleImageUploader
+          onImagesChange={(urls) => setData('screenshots', urls)}
+          label="Screenshots"
+        />
         <div className="w-full flex justify-end mt-10">
           <Button type="submit">Ajouter</Button>
         </div>

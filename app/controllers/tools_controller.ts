@@ -42,6 +42,7 @@ export default class ToolsController {
       screenshots: JSON.stringify(payload.screenshots) as unknown as string[],
       slug: string.slug(payload.name),
       status: 'pending',
+      userId: user,
     })
 
     return response.redirect('/')

@@ -1,10 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, beforeCreate, belongsTo, column } from '@adonisjs/lucid/orm'
+import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
 import type { Providers } from '#types/providers'
 import type { Status, UUID } from '#types/common'
 import { randomUUID } from 'node:crypto'
-import User from './user.js'
-import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Tool extends BaseModel {
   @column({ isPrimary: true })
@@ -46,8 +44,8 @@ export default class Tool extends BaseModel {
   @column()
   declare status: Status
 
-  @belongsTo(() => User)
-  declare userId: BelongsTo<typeof User>
+  @column()
+  declare userId: UUID
 
   @beforeCreate()
   static async createUUID(tool: Tool) {
