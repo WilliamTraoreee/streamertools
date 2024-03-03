@@ -50,7 +50,8 @@ export function Popover(props: Props) {
             align={align}
             sideOffset={8}
             collisionPadding={12}
-            className="outline-none"
+            className="outline-none z-[9999]"
+            onOpenAutoFocus={(e) => e.preventDefault()}
           >
             <motion.div variants={popoverAnimation} initial="initial" animate="in" exit="out">
               <div className="rounded p-3 w-[260px] bg-dark border-gradient outline-none shadow-lg">

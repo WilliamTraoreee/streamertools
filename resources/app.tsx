@@ -19,9 +19,11 @@ createInertiaApp({
   },
 
   setup({ el, App, props }) {
+    const user = props.initialPage.props.user
+
     const root = createRoot(el)
     root.render(
-      <Layout>
+      <Layout user={user}>
         <App {...props} />
       </Layout>
     )

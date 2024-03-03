@@ -10,6 +10,7 @@ router
     router.get('/tools/add', ({ inertia }) => inertia.render('tools/add'))
 
     router.post('/upload', [UploadController, 'send'])
+    router.post('/logout', [AuthController, 'disconnect'])
   })
   .use(middleware.auth())
 

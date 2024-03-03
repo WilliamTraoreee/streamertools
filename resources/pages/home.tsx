@@ -16,8 +16,8 @@ export default function Home(props: Props) {
         <title>Tools</title>
       </Head>
 
-      <div className="py-40 w-full" lg="w-1/2">
-        <h1 className="font-black text-6xl mb-5">
+      <div className="pb-10 w-full" lg="w-1/2 py-40">
+        <h1 className="font-black text-4xl mb-5" lg="text-6xl">
           Discover the best tools to upgrade your stream.
         </h1>
         <h2 className="text-gray mb-10">

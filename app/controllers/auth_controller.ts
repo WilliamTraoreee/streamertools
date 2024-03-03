@@ -63,7 +63,7 @@ export default class AuthController {
     return response.ok(user)
   }
 
-  disconnect({ response, session }: HttpContext) {
+  disconnect({ session, response }: HttpContext) {
     session.forget('authenticated_user')
     return response.redirect('/')
   }
