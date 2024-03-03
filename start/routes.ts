@@ -3,10 +3,13 @@ import { middleware } from './kernel.js'
 
 const ToolsController = () => import('#controllers/tools_controller')
 const AuthController = () => import('#controllers/auth_controller')
+const UploadController = () => import('#controllers/upload_controller')
 
 router
   .group(() => {
     router.get('/tools/add', ({ inertia }) => inertia.render('tools/add'))
+
+    router.post('/upload', [UploadController, 'send'])
   })
   .use(middleware.auth())
 

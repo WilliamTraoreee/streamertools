@@ -44,4 +44,15 @@ export default await Env.create(new URL('../', import.meta.url), {
   TWITCH_CLIENT_ID: Env.schema.string(),
   TWITCH_CLIENT_SECRET: Env.schema.string(),
   TWITCH_CALLBACK_URL: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for AWS S3
+  |----------------------------------------------------------
+  */
+  S3_ACCESS_KEY: Env.schema.string(),
+  S3_SECRET_KEY: Env.schema.string(),
+  S3_ENDPOINT: Env.schema.string(),
+  S3_BUCKET_NAME: Env.schema.string(),
+  S3_REGION: Env.schema.string(),
 })
