@@ -6,7 +6,7 @@ export default class AuthMiddleware {
     const authenticatedUserId = ctx.session.get('authenticated_user')
 
     if (!authenticatedUserId) {
-      return ctx.response.forbidden()
+      return ctx.inertia.location('/login')
     }
 
     return await next()
