@@ -3,6 +3,7 @@
   "exclude": ["./resources/**/*"],
   "compilerOptions": {
     "rootDir": "./",
+    "resolveJsonModule": true,
     "outDir": "./build",
     "paths": {
       "#controllers/*": ["./app/controllers/*.js"],

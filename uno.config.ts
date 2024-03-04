@@ -1,8 +1,16 @@
 import { defineConfig } from 'unocss'
-import { presetAttributify, presetUno } from 'unocss'
+import { presetAttributify, presetUno, presetIcons } from 'unocss'
 
 export default defineConfig({
-  presets: [presetUno(), presetAttributify()],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      collections: {
+        ri: () => import('@iconify-json/ri/icons.json').then((i) => i.default),
+      },
+    }),
+  ],
   theme: {
     colors: {
       primary: {
@@ -16,6 +24,7 @@ export default defineConfig({
         dark: '#A5BE10',
       },
       dark: '#1D1D1D',
+      twitch: '#9146FF',
     },
     keyframes: {
       slideUpAndFade: {

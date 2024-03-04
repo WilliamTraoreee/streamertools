@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react'
 import type { ComponentPropsWithoutRef } from 'react'
 
 interface Props extends ComponentPropsWithoutRef<'button'> {
-  variant?: 'primary' | 'secondary' | 'dark' | 'transparent'
+  variant?: 'primary' | 'secondary' | 'dark' | 'transparent' | 'twitch'
   size?: 'normal' | 'large'
   link?: string
   external?: boolean
@@ -14,6 +14,7 @@ const buttonColorClassName = {
   secondary: 'bg-secondary-normal hover:bg-secondary-light text-black',
   dark: 'bg-black text-white border border-gray-800 hover:bg-gray-900',
   transparent: 'bg-transparent text-white hover:bg-black hover:text-white',
+  twitch: 'bg-twitch text-white hover:bg-twitch-dark',
 }
 
 const buttonSizeClassName = {
@@ -31,7 +32,7 @@ export function Button(props: Props) {
     ...rest
   } = props
 
-  const className = `rounded-md font-bold transition-colors duration-150 inline-flex items-center justify-center text-center ${buttonColorClassName[variant]} ${buttonSizeClassName[size]} ${rest.className}`
+  const className = `rounded-md gap-2 font-bold transition-colors duration-150 inline-flex items-center justify-center text-center ${buttonColorClassName[variant]} ${buttonSizeClassName[size]} ${rest.className}`
 
   if (link && !external) {
     return (

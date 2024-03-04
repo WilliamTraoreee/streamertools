@@ -58,12 +58,17 @@ export function Header(props: Props) {
           </ul>
         </nav>
 
-        <button lg="hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          Open
+        <button
+          className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-white"
+          lg="hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span className="i-ri:menu-3-fill" />
         </button>
 
         {!user && (
           <Button variant="secondary" link="/login">
+            <span className="i-ri:user-3-line" />
             Login
           </Button>
         )}
@@ -103,6 +108,12 @@ export function Header(props: Props) {
           </Popover>
         )}
       </div>
+      {isMenuOpen && (
+        <button
+          className="w-screen h-screen top-0 left-0 fixed bg-transparent -z-1"
+          onClick={() => setIsMenuOpen(false)}
+        ></button>
+      )}
     </header>
   )
 }

@@ -34,9 +34,11 @@ export function CardTool(props: Props) {
       </div>
       <div className="flex gap-1">
         <Button link={`/tools/${tool.slug}`} variant="dark" className="flex-1">
+          <span className="i-ri:information-2-line"></span>
           More info
         </Button>
         <Button link={tool.url} external className="flex-1">
+          <span className="i-ri:links-line"></span>
           Use this tool
         </Button>
       </div>

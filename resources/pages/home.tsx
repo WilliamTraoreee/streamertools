@@ -24,7 +24,10 @@ export default function Home(props: Props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non lacus at orci commodo
           bibendum a non mauris. Sed pellentesque nisi sit amet erat tempor consectetur.
         </h2>
-        <Button link="/tools/add">Submit a tool</Button>
+        <Button link="/tools/add">
+          <span className="i-ri:add-line"></span>
+          Submit a tool
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 gap-10" sm="grid-cols-2" lg="grid-cols-3" xl="grid-cols-4">

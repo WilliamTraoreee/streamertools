@@ -11,7 +11,8 @@ export default function Login() {
         Join us and upgrade your stream
       </h1>
       <h2 className="text-gray mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-      <Button link="/auth/twitch" external sameWindow className="mb-10">
+      <Button link="/auth/twitch" external sameWindow className="mb-10" variant="twitch">
+        <span className="i-ri:twitch-fill"></span>
         Connect with Twitch
       </Button>
       <p>
