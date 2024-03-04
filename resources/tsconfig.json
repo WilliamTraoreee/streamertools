@@ -7,10 +7,6 @@
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "paths": {
-      "@/*": ["./*"],
-      "~/*": ["../*"]
-    },
     "resolveJsonModule": true,
     "types": ["vite/client"],
     "allowSyntheticDefaultImports": true,

@@ -1,10 +1,11 @@
 import Tool from '#models/tool'
-import { createToolValidator } from '#validators/tool'
+import { createToolValidator, updateToolValidator } from '#validators/tool'
 import type { HttpContext } from '@adonisjs/core/http'
 import string from '@adonisjs/core/helpers/string'
 import { Providers } from '../../types/providers.js'
 import { AllToolsPresenter, SingleToolPresenter } from '../presenters/tool.js'
 import { inject } from '@adonisjs/core'
+import User from '#models/user'
 
 @inject()
 export default class ToolsController {
@@ -46,5 +47,25 @@ export default class ToolsController {
     })
 
     return response.redirect('/')
+  }
+
+  async update({ request, response, params, session }: HttpContext) {
+    const userId = session.get('authenticated_user')
+
+    if (!userId) {
+      return response.redirect('/login')
+    }
+
+    const user = await User.findByOrFail('id', userId)
+
+    if (!user || user.role !== 'admin') {
+      return response.redirect('/login')
+    }
+
+    const tool = await Tool.findOrFail(params.id)
+
+    await tool.merge(request.all()).save()
+
+    return response.redirect().back()
   }
 }

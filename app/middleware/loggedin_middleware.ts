@@ -6,7 +6,7 @@ export default class LoggedinMiddleware {
     const authenticatedUserId = ctx.session.get('authenticated_user')
 
     if (authenticatedUserId) {
-      return ctx.inertia.location('/')
+      return ctx.response.redirect('/')
     }
 
     return await next()

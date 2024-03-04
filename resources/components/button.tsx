@@ -55,5 +55,9 @@ export function Button(props: Props) {
     )
   }
 
-  return <button className={className}>{rest.children}</button>
+  return (
+    <button {...rest} className={className}>
+      {rest.children}
+    </button>
+  )
 }

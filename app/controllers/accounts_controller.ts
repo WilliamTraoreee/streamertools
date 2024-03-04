@@ -1,12 +1,12 @@
 import Tool from '#models/tool'
 import type { HttpContext } from '@adonisjs/core/http'
-import { UserToolsPresenter } from '../presenters/tool.js'
+import { StatusToolsPresenter } from '../presenters/tool.js'
 import { inject } from '@adonisjs/core'
 import User from '#models/user'
 
 @inject()
 export default class AccountsController {
-  constructor(private userToolsPresenter: UserToolsPresenter) {}
+  constructor(private statusToolsPresenter: StatusToolsPresenter) {}
 
   public async tools({ inertia, session }: HttpContext) {
     const userId = session.get('authenticated_user')
@@ -19,6 +19,6 @@ export default class AccountsController {
 
     const userTools = await Tool.query().where('user_id', user.id)
 
-    return inertia.render('account/tools', { tools: this.userToolsPresenter.json(userTools) })
+    return inertia.render('account/tools', { tools: this.statusToolsPresenter.json(userTools) })
   }
 }

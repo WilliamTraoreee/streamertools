@@ -5,6 +5,7 @@ const ToolsController = () => import('#controllers/tools_controller')
 const AuthController = () => import('#controllers/auth_controller')
 const UploadController = () => import('#controllers/upload_controller')
 const AccountsController = () => import('#controllers/accounts_controller')
+const AdminController = () => import('#controllers/admin_controller')
 
 router
   .group(() => {
@@ -22,6 +23,13 @@ router
     router.get('/login', ({ inertia }) => inertia.render('login'))
   })
   .use(middleware.loggedin())
+
+router
+  .group(() => {
+    router.get('/admin/tools', [AdminController, 'tools'])
+    router.post('/admin/tools/:id', [ToolsController, 'update'])
+  })
+  .use(middleware.admin())
 
 router.get('/', [ToolsController, 'index'])
 router.get('/tools/:slug', [ToolsController, 'show'])
