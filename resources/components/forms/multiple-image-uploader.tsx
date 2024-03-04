@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Modal } from '../modal'
 import 'react-advanced-cropper/dist/style.css'
 import { File as FileComponent } from './file'
-import { m } from 'framer-motion'
 
 interface Props {
   currentImages?: string[]

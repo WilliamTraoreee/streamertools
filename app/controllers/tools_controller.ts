@@ -23,7 +23,15 @@ export default class ToolsController {
   async show({ params, inertia }: HttpContext) {
     const tool = await Tool.query().where('slug', params.slug).firstOrFail()
 
-    return inertia.render('tools/single', { tool: this.singleToolPresenter.json(tool) })
+    const randomTools = await Tool.query()
+      .where('status', 'approved')
+      .limit(2)
+      .orderByRaw('random()')
+
+    return inertia.render('tools/single', {
+      tool: this.singleToolPresenter.json(tool),
+      randomTools: this.allToolsPresenter.json(randomTools),
+    })
   }
 
   async create({ request, response, session }: HttpContext) {

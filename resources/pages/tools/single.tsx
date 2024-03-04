@@ -1,12 +1,14 @@
 import { Button } from '../../components/button'
 import type { Tool } from '../../../types/tool'
+import { CardTool } from '../../components/cards/card-tool'
 
 interface Props {
   tool: Tool
+  randomTools: Tool[]
 }
 
 export default function Single(props: Props) {
-  const { tool } = props
+  const { tool, randomTools } = props
 
   if (tool.status === 'pending') {
     return (
@@ -57,7 +59,7 @@ export default function Single(props: Props) {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-10" lg="grid-cols-2">
+      <div className="grid grid-cols-1 gap-5" lg="grid-cols-2">
         {tool.screenshots.map((screenshot) => (
           <img
             key={screenshot}
@@ -66,6 +68,14 @@ export default function Single(props: Props) {
             loading="lazy"
             className="w-full h-auto rounded-xl"
           />
+        ))}
+      </div>
+
+      <h2 className="font-bold text-xl text-center mt-20 mb-10">You may also like</h2>
+
+      <div className="grid grid-cols-1 gap-5" md="grid-cols-2">
+        {randomTools.map((tool) => (
+          <CardTool tool={tool} />
         ))}
       </div>
     </div>
