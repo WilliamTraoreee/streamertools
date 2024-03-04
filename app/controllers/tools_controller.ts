@@ -1,5 +1,5 @@
 import Tool from '#models/tool'
-import { createToolValidator, updateToolValidator } from '#validators/tool'
+import { createToolValidator } from '#validators/tool'
 import type { HttpContext } from '@adonisjs/core/http'
 import string from '@adonisjs/core/helpers/string'
 import { Providers } from '../../types/providers.js'
