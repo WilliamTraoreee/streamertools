@@ -1,6 +1,7 @@
 import { Link, useForm } from '@inertiajs/react'
 import { Button } from '../button'
 import { Popover } from '../popover'
+import { useState } from 'react'
 
 interface Props {
   user: any
@@ -9,16 +10,24 @@ interface Props {
 export function Header(props: Props) {
   const { user } = props
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   const { post } = useForm()
 
   return (
-    <header className="fixed top-0 left-0 w-screen h-20 bg-black/25 backdrop-blur px-10 flex items-center border-b border-white/10 justify-between z-10">
+    <header
+      className="fixed top-0 left-0 w-screen h-20 bg-black/25 backdrop-blur px-5 flex items-center border-b border-white/10 justify-between z-10"
+      lg="px-10"
+    >
       <Link href="/">
         <img src="/assets/streamertools.svg" alt="StreamerTools" loading="lazy" />
       </Link>
-      <div>
-        <nav className="flex items-center gap-10">
-          <ul className="flex items-center gap-10">
+      <div className="flex items-center gap-5" lg="gap-10">
+        <nav
+          className={`flex gap-10 fixed top-20 bg-dark h-[calc(100dvh_-_5rem)] w-100 p-10 transition-all duration-200 ${isMenuOpen ? 'right-0' : '-right-100'}`}
+          lg="static bg-transparent h-20 w-auto p-0"
+        >
+          <ul className="flex items-end gap-10 flex-col w-full" lg="flex-row items-center h-full">
             <li>
               <Link
                 href="/"
@@ -47,47 +56,52 @@ export function Header(props: Props) {
               </Link>
             </li>
           </ul>
-          {!user && (
-            <Button variant="secondary" link="/login">
-              Login
+        </nav>
+
+        <button lg="hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          Open
+        </button>
+
+        {!user && (
+          <Button variant="secondary" link="/login">
+            Login
+          </Button>
+        )}
+        {user && (
+          <Popover
+            trigger={
+              <img
+                src={user.providerData.avatar_url}
+                alt={user.providerData.username}
+                className="w-8 h-8 rounded cursor-pointer"
+              />
+            }
+          >
+            <Button
+              link="/account/tools"
+              variant="transparent"
+              className="w-full !justify-end text-right"
+            >
+              My account
             </Button>
-          )}
-          {user && (
-            <Popover
-              trigger={
-                <img
-                  src={user.providerData.avatar_url}
-                  alt={user.providerData.username}
-                  className="w-8 h-8 rounded cursor-pointer"
-                />
-              }
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                post('/logout', {
+                  onSuccess: () => window.location.reload(),
+                })
+              }}
             >
               <Button
-                link="/account/tools"
+                type="submit"
                 variant="transparent"
                 className="w-full !justify-end text-right"
               >
-                My account
+                Logout
               </Button>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  post('/logout', {
-                    onSuccess: () => window.location.reload(),
-                  })
-                }}
-              >
-                <Button
-                  type="submit"
-                  variant="transparent"
-                  className="w-full !justify-end text-right"
-                >
-                  Logout
-                </Button>
-              </form>
-            </Popover>
-          )}
-        </nav>
+            </form>
+          </Popover>
+        )}
       </div>
     </header>
   )
