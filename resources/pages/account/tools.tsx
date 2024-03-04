@@ -16,7 +16,7 @@ export default function Tools(props: Props) {
   console.log(tools)
 
   return (
-    <div className="container mx-auto px-6 mb-10">
+    <div className="container mx-auto px-6 mb-10" lg="pt-20">
       <div className="flex justify-between items-center gap-6 mb-10">
         <h1 className="text-4xl font-black" lg="text-6xl">
           My submitted tools
