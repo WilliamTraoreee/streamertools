@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Modal } from '../modal'
-import { type CropperRef, Cropper } from 'react-advanced-cropper'
 import 'react-advanced-cropper/dist/style.css'
-import debounce from 'debounce'
 import { File as FileComponent } from './file'
 
 interface Props {
@@ -111,9 +109,9 @@ export function MultipleImageUploader(props: Props) {
           )}
         </Modal>
         {currentImagesFile && (
-          <div className="grid grid-6 grid-cols-1" lg="grid-cols-2">
+          <div className="grid grid-6 grid-cols-1 gap-3" lg="grid-cols-2">
             {currentImagesFile.map((url, index) => (
-              <img src={url} key={index} className="w-full h-auto rounded-xl" />
+              <img src={url} key={index} className="w-full h-auto rounded-lg" />
             ))}
           </div>
         )}

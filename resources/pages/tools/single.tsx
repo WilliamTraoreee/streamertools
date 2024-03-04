@@ -8,6 +8,22 @@ interface Props {
 export default function Single(props: Props) {
   const { tool } = props
 
+  if (tool.status === 'pending') {
+    return (
+      <div className="flex justify-center items-center" lg="h-[70vh]">
+        <p>This tool is in pending and need to be approved by an admin</p>
+      </div>
+    )
+  }
+
+  if (tool.status === 'rejected') {
+    return (
+      <div className="flex justify-center items-center" lg="h-[70vh]">
+        <p>This tool is rejected</p>
+      </div>
+    )
+  }
+
   return (
     <div className="w-full px-6 mx-auto" lg="w-[800px] mt-10">
       <div className="flex justify-between mb-10 flex-col gap-5" md="flex-row items-center">

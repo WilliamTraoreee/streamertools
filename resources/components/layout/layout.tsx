@@ -9,8 +9,6 @@ interface Props {
 export function Layout(props: Props) {
   const { children, user } = props
 
-  console.log(user)
-
   return (
     <>
       <Header user={user} />

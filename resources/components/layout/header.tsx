@@ -12,7 +12,7 @@ export function Header(props: Props) {
   const { post } = useForm()
 
   return (
-    <header className="fixed top-0 left-0 w-screen h-20 bg-black/25 backdrop-blur px-10 flex items-center border-b border-white/10 justify-between z-0">
+    <header className="fixed top-0 left-0 w-screen h-20 bg-black/25 backdrop-blur px-10 flex items-center border-b border-white/10 justify-between z-10">
       <Link href="/">
         <img src="/assets/streamertools.svg" alt="StreamerTools" loading="lazy" />
       </Link>
@@ -62,6 +62,13 @@ export function Header(props: Props) {
                 />
               }
             >
+              <Button
+                link="/account/tools"
+                variant="transparent"
+                className="w-full !justify-end text-right"
+              >
+                My account
+              </Button>
               <form
                 onSubmit={(e) => {
                   e.preventDefault()
@@ -70,7 +77,13 @@ export function Header(props: Props) {
                   })
                 }}
               >
-                <button type="submit">Logout</button>
+                <Button
+                  type="submit"
+                  variant="transparent"
+                  className="w-full !justify-end text-right"
+                >
+                  Logout
+                </Button>
               </form>
             </Popover>
           )}
