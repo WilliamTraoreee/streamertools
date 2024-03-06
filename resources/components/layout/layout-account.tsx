@@ -35,6 +35,9 @@ export function LayoutAccount(props: Props) {
             <Button variant="transparent" link="/admin/tools" className="w-full !justify-start">
               Admin tools
             </Button>
+            <Button variant="transparent" link="/admin/gears/add" className="w-full !justify-start">
+              Admin add gears
+            </Button>
           </div>
         )}
       </aside>

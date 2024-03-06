@@ -18,7 +18,7 @@ const shieldConfig = defineConfig({
   csrf: {
     enabled: true,
     exceptRoutes: (ctx) => {
-      return ctx.request.url().includes('upload')
+      return ctx.request.url().includes('upload') || ctx.request.url().includes('amazon')
     },
     enableXsrfCookie: true,
     methods: ['POST', 'PUT', 'PATCH', 'DELETE'],

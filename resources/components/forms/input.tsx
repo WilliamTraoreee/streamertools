@@ -4,15 +4,16 @@ interface Props extends ComponentPropsWithoutRef<'input'> {
   label?: string
   labelClassName?: string
   errorMessage?: string
+  containerClassName?: string
 }
 
 export function Input(props: Props) {
-  const { label, labelClassName, errorMessage, ...rest } = props
+  const { label, labelClassName = '', containerClassName = '', errorMessage, ...rest } = props
 
   const [isFocus, setIsFocus] = useState(false)
 
   return (
-    <label>
+    <label className={containerClassName}>
       {label && <span className={`block text-sm font-medium mb-2 ${labelClassName}`}>{label}</span>}
       <div className={`bg-dark border-gradient h-14 ${isFocus ? 'border-gradient-active' : ''}`}>
         <input

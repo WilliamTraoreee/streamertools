@@ -55,4 +55,13 @@ export default await Env.create(new URL('../', import.meta.url), {
   S3_ENDPOINT: Env.schema.string(),
   S3_BUCKET_NAME: Env.schema.string(),
   S3_REGION: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for Amazon Associates
+  |----------------------------------------------------------
+  */
+  AMAZON_ASSOCIATE_KEY: Env.schema.string(),
+  AMAZON_ASSOCIATE_SECRET_KEY: Env.schema.string(),
+  AMAZON_ASSOCIATE_TAG: Env.schema.string(),
 })

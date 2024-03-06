@@ -6,6 +6,7 @@ const AuthController = () => import('#controllers/auth_controller')
 const UploadController = () => import('#controllers/upload_controller')
 const AccountsController = () => import('#controllers/accounts_controller')
 const AdminController = () => import('#controllers/admin_controller')
+const AmazonController = () => import('#controllers/amazon_controller')
 
 router
   .group(() => {
@@ -28,8 +29,11 @@ router
   .group(() => {
     router.get('/admin/tools', [AdminController, 'tools'])
     router.post('/admin/tools/:id', [ToolsController, 'update'])
+    router.get('admin/gears/add', ({ inertia }) => inertia.render('gears/add'))
   })
   .use(middleware.admin())
+
+router.post('/amazon/search', [AmazonController, 'search'])
 
 router.get('/', [ToolsController, 'index'])
 router.get('/tools/:slug', [ToolsController, 'show'])
