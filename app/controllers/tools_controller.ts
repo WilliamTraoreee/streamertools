@@ -6,18 +6,26 @@ import { Providers } from '../../types/providers.js'
 import { AllToolsPresenter, SingleToolPresenter } from '../presenters/tool.js'
 import { inject } from '@adonisjs/core'
 import User from '#models/user'
+import { GearsPresenter } from '../presenters/gears.js'
+import Gear from '#models/gear'
 
 @inject()
 export default class ToolsController {
   constructor(
     private allToolsPresenter: AllToolsPresenter,
-    private singleToolPresenter: SingleToolPresenter
+    private singleToolPresenter: SingleToolPresenter,
+    private gearsPresenter: GearsPresenter
   ) {}
 
   async index({ inertia }: HttpContext) {
     const tools = await Tool.query().where('status', 'approved').orderBy('name', 'asc')
 
-    return inertia.render('home', { tools: this.allToolsPresenter.json(tools) })
+    const randomGears = await Gear.query().limit(4).orderByRaw('random()')
+
+    return inertia.render('home', {
+      tools: this.allToolsPresenter.json(tools),
+      randomGears: this.gearsPresenter.json(randomGears),
+    })
   }
 
   async show({ params, inertia }: HttpContext) {
@@ -28,9 +36,12 @@ export default class ToolsController {
       .limit(2)
       .orderByRaw('random()')
 
+    const randomGears = await Gear.query().limit(2).orderByRaw('random()')
+
     return inertia.render('tools/single', {
       tool: this.singleToolPresenter.json(tool),
       randomTools: this.allToolsPresenter.json(randomTools),
+      randomGears: this.gearsPresenter.json(randomGears),
     })
   }
 

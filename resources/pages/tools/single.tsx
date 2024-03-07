@@ -1,14 +1,17 @@
 import { Button } from '../../components/button'
 import type { Tool } from '../../../types/tool'
 import { CardTool } from '../../components/cards/card-tool'
+import type { Gear } from '../../../types/gear'
+import CardGear from '../../components/cards/card-gear'
 
 interface Props {
   tool: Tool
   randomTools: Tool[]
+  randomGears: Gear[]
 }
 
 export default function Single(props: Props) {
-  const { tool, randomTools } = props
+  const { tool, randomTools, randomGears } = props
 
   if (tool.status === 'pending') {
     return (
@@ -59,7 +62,7 @@ export default function Single(props: Props) {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-5" lg="grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 mb-10" lg="grid-cols-2">
         {tool.screenshots.map((screenshot) => (
           <img
             key={screenshot}
@@ -71,11 +74,25 @@ export default function Single(props: Props) {
         ))}
       </div>
 
-      <h2 className="font-bold text-xl text-center mt-20 mb-10">You may also like</h2>
+      <div className="p-10 bg-black rounded-xl mb-10">
+        <h3 className="font-black text-2xl mb-5 text-center">Our recommanded streaming products</h3>
+        <div className="grid grid-cols-1 gap-5 mb-5" md="grid-cols-2">
+          {randomGears.map((gear) => (
+            <CardGear key={gear.id} gear={gear} />
+          ))}
+        </div>
+        <div className="w-full justify-center flex">
+          <Button link="/gears" className="mx-auto">
+            See all products
+          </Button>
+        </div>
+      </div>
+
+      <h2 className="font-bold text-xl text-center  mb-5">You may also like</h2>
 
       <div className="grid grid-cols-1 gap-5" md="grid-cols-2">
         {randomTools.map((tool) => (
-          <CardTool tool={tool} />
+          <CardTool tool={tool} key={tool.id} />
         ))}
       </div>
     </div>

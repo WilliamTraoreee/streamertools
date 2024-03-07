@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
 import type { UUID } from '#types/common'
+import { randomUUID } from 'node:crypto'
 
 export default class GearCategory extends BaseModel {
   @column({ isPrimary: true })
@@ -17,4 +18,9 @@ export default class GearCategory extends BaseModel {
 
   @column()
   declare slug: string
+
+  @beforeCreate()
+  static async createUUID(category: GearCategory) {
+    category.id = randomUUID() as UUID
+  }
 }

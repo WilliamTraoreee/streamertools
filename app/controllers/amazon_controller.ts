@@ -14,7 +14,7 @@ export default class AmazonsController {
     const searchRequest = new SearchItemsRequest(
       {
         Keywords: keywords,
-        Resources: ['Images.Primary.Medium', 'ItemInfo.Title', 'Offers.Listings.Price'],
+        Resources: ['Images.Primary.Large', 'ItemInfo.Title', 'Offers.Listings.Price'],
       },
       env.get('AMAZON_ASSOCIATE_TAG'),
       PartnerType.ASSOCIATES,

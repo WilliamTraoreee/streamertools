@@ -11,8 +11,8 @@ export class AmazonSearchPresenter {
             ? item.Offers.Listings[0].Price.DisplayAmount
             : null,
         image:
-          item.Images && item.Images.Primary && item.Images.Primary.Medium
-            ? item.Images.Primary.Medium.URL
+          item.Images && item.Images.Primary && item.Images.Primary.Large
+            ? item.Images.Primary.Large.URL
             : null,
       })),
     ].filter((item) => item.title && item.price && item.image)
