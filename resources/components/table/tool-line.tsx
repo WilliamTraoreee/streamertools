@@ -90,6 +90,7 @@ export function ToolLine(props: Props) {
             onImagesChange={(urls) => setData('screenshots', urls)}
             label="Screenshots"
             currentImages={data.screenshots}
+            maxLength={4}
           />
           {isDirty && (
             <Button type="submit">

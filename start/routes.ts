@@ -33,6 +33,9 @@ router
     router.get('admin/gears', [GearsController, 'admin'])
     router.post('gear-category', [GearCategoriesController, 'create'])
     router.post('gears', [GearsController, 'create'])
+    router.put('admin/gear-category/:id', [GearCategoriesController, 'update'])
+    router.delete('admin/gear/:id', [GearsController, 'delete'])
+    router.delete('admin/gear-category/:id', [GearCategoriesController, 'delete'])
   })
   .use(middleware.admin())
 

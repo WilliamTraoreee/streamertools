@@ -20,7 +20,13 @@ export default class GearsController {
   }
 
   async admin({ inertia }: HttpContext) {
-    return inertia.render('admin/gears')
+    const gears = await Gear.all()
+    const categories = await GearCategory.all()
+
+    return inertia.render('admin/gears', {
+      gears,
+      categories,
+    })
   }
 
   async addPage({ inertia }: HttpContext) {
@@ -33,6 +39,14 @@ export default class GearsController {
     const data = request.all()
 
     await Gear.create(data)
+
+    return response.redirect().back()
+  }
+
+  async delete({ params, response }: HttpContext) {
+    const gear = await Gear.findOrFail(params.id)
+
+    await gear.delete()
 
     return response.redirect().back()
   }

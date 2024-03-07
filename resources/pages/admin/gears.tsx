@@ -4,9 +4,21 @@ import { LayoutAccount } from '../../components/layout/layout-account'
 import { Input } from '../../components/forms/input'
 import { useForm } from '@inertiajs/react'
 import { useState, type FormEvent } from 'react'
+import type { Gear } from '../../../types/gear'
+import type { GearCategory } from '../../../types/gear_category'
+import { CategoryLine } from '../../components/table/category-line'
+import { GearLine } from '../../components/table/gear-line'
 
-export default function Gears() {
+interface Props {
+  gears: Gear[]
+  categories: GearCategory[]
+}
+
+export default function Gears(props: Props) {
+  const { gears, categories } = props
+
   const [open, setOpen] = useState(false)
+  const [tab, setTab] = useState<'categories' | 'gears'>('categories')
 
   const { post, setData } = useForm({
     name: '',
@@ -26,7 +38,7 @@ export default function Gears() {
 
   return (
     <LayoutAccount>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mb-10">
         <h1 className="text-4xl font-black mb-10" lg="text-6xl">
           Gears
         </h1>
@@ -63,6 +75,42 @@ export default function Gears() {
           </Modal>
         </div>
       </div>
+
+      <div className="flex gap-2 mb-10">
+        <Button
+          onClick={() => setTab('categories')}
+          variant={tab === 'categories' ? 'secondary' : 'dark'}
+        >
+          Categories
+        </Button>
+        <Button onClick={() => setTab('gears')} variant={tab === 'gears' ? 'secondary' : 'dark'}>
+          Gears
+        </Button>
+      </div>
+
+      {tab === 'categories' && (
+        <div>
+          {categories.length > 0 && (
+            <div className="mb-10">
+              {categories.map((category) => (
+                <CategoryLine key={category.id} category={category} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {tab === 'gears' && (
+        <div>
+          {gears.length > 0 && (
+            <div className="mb-10">
+              {gears.map((gear) => (
+                <GearLine key={gear.id} gear={gear} categories={categories} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </LayoutAccount>
   )
 }

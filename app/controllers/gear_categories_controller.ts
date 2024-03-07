@@ -9,4 +9,22 @@ export default class GearCategoriesController {
 
     return response.redirect().back()
   }
+
+  async update({ request, response }: HttpContext) {
+    const category = await GearCategory.findOrFail(request.param('id'))
+
+    category.merge(request.all())
+
+    await category.save()
+
+    return response.redirect().back()
+  }
+
+  async delete({ params, response }: HttpContext) {
+    const category = await GearCategory.findOrFail(params.id)
+
+    await category.delete()
+
+    return response.redirect().back()
+  }
 }
