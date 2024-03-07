@@ -3,6 +3,7 @@ import type { Tool } from '../../../types/tool'
 import { CardTool } from '../../components/cards/card-tool'
 import type { Gear } from '../../../types/gear'
 import CardGear from '../../components/cards/card-gear'
+import { FancyBox } from '../../components/fancybox'
 
 interface Props {
   tool: Tool
@@ -64,13 +65,7 @@ export default function Single(props: Props) {
 
       <div className="grid grid-cols-1 gap-5 mb-10" lg="grid-cols-2">
         {tool.screenshots.map((screenshot) => (
-          <img
-            key={screenshot}
-            src={screenshot}
-            alt={tool.name}
-            loading="lazy"
-            className="w-full h-auto rounded-xl"
-          />
+          <FancyBox key={screenshot} image={screenshot} />
         ))}
       </div>
 
