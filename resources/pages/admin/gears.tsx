@@ -2,7 +2,7 @@ import { Modal } from '../../components/modal'
 import { Button } from '../../components/button'
 import { LayoutAccount } from '../../components/layout/layout-account'
 import { Input } from '../../components/forms/input'
-import { useForm, usePage } from '@inertiajs/react'
+import { useForm } from '@inertiajs/react'
 import { useState, type FormEvent } from 'react'
 
 export default function Gears() {

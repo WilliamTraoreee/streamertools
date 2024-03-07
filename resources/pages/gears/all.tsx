@@ -30,7 +30,7 @@ export default function All(props: Props) {
       {categories.map((category) => (
         <div key={category.id}>
           <h3 className="text-5xl font-bold mb-1">{category.title}</h3>
-          <h4 className="text-gray mb-5">{category.description}</h4>
+          <h4 className="text-gray mb-10">{category.description}</h4>
           <div
             className="grid grid-cols-1 gap-10 mb-5 2xl:grid-cols-6"
             sm="grid-cols-2"

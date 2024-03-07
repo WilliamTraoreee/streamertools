@@ -20,7 +20,7 @@ export default class ToolsController {
   async index({ inertia }: HttpContext) {
     const tools = await Tool.query().where('status', 'approved').orderBy('name', 'asc')
 
-    const randomGears = await Gear.query().limit(4).orderByRaw('random()')
+    const randomGears = await Gear.query().limit(5).orderByRaw('random()')
 
     return inertia.render('home', {
       tools: this.allToolsPresenter.json(tools),
