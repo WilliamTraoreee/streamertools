@@ -1,4 +1,5 @@
 import Gear from '#models/gear'
+import GearCategory from '#models/gear_category'
 
 export class GearsPresenter {
   json(gears: Gear[]) {
@@ -11,5 +12,19 @@ export class GearsPresenter {
       link: gear.link,
       gearCategory: gear.gearCategory,
     }))
+  }
+}
+
+export class GearsByCategoryPresenter {
+  json(gears: Gear[], categories: GearCategory[]) {
+    const gearByCategory = categories.reduce(
+      (acc, category) => {
+        acc[category.slug] = gears.filter((gear) => gear.gearCategory === category.slug)
+        return acc
+      },
+      {} as { [key: string]: Gear[] }
+    )
+
+    return gearByCategory
   }
 }

@@ -12,6 +12,8 @@ export default class extends BaseSchema {
 
       table.string('name').notNullable()
       table.string('slug').notNullable()
+      table.string('title').notNullable()
+      table.string('description').notNullable()
     })
   }
 

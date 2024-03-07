@@ -19,6 +19,12 @@ export default class GearCategory extends BaseModel {
   @column()
   declare slug: string
 
+  @column()
+  declare title: string
+
+  @column()
+  declare description: string
+
   @beforeCreate()
   static async createUUID(category: GearCategory) {
     category.id = randomUUID() as UUID

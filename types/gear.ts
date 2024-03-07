@@ -7,3 +7,7 @@ export type Gear = {
   link: string
   gearCategory: string
 }
+
+export type GearByCategory = {
+  [key: string]: Gear[]
+}

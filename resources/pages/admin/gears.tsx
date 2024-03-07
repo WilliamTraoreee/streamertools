@@ -11,6 +11,8 @@ export default function Gears() {
   const { post, setData } = useForm({
     name: '',
     slug: '',
+    title: '',
+    description: '',
   })
 
   const submit = (e: FormEvent) => {
@@ -42,6 +44,16 @@ export default function Gears() {
               <Input
                 label="Slug"
                 onChange={(e) => setData('slug', e.target.value)}
+                containerClassName="mb-3"
+              />
+              <Input
+                label="Title"
+                onChange={(e) => setData('title', e.target.value)}
+                containerClassName="mb-3"
+              />
+              <Input
+                label="Description"
+                onChange={(e) => setData('description', e.target.value)}
                 containerClassName="mb-3"
               />
               <div className="flex justify-end">
