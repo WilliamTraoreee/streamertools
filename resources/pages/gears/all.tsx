@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 import type { GearByCategory } from '../../../types/gear'
 import type { GearCategory } from '../../../types/gear_category'
 import CardGear from '../../components/cards/card-gear'
@@ -27,8 +27,23 @@ export default function All(props: Props) {
         </h2>
       </div>
 
+      <div className="flex w-full justify-center mb-5">
+        <div className="flex bg-dark border-gradient-no-hover py-4 px-6 gap-4">
+          {categories.map((category) => (
+            <Link
+              key={`link${category.id}`}
+              href={`/gears/category/${category.slug}`}
+              className="uppercase font-bold text-sm"
+              hover="text-secondary-normal"
+            >
+              {category.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {categories.map((category) => (
-        <div key={category.id}>
+        <div key={category.id} className="mb-20">
           <h3 className="text-5xl font-bold mb-1">{category.title}</h3>
           <h4 className="text-gray mb-10">{category.description}</h4>
           <div

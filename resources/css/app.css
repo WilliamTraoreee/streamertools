@@ -42,6 +42,28 @@ body {
   }
 }
 
+.border-gradient-no-hover {
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: rgb(53, 53, 53);
+    background: linear-gradient(180deg, rgba(53, 53, 53, 1) 0%, rgba(29, 29, 29, 1) 100%);
+    transition: all 0.3s linear;
+  }
+}
+
 .border-gradient-active {
   &:before {
     background: rgb(40, 104, 230);
