@@ -1,46 +1,44 @@
-import Tool from '#models/tool'
-import { createToolValidator } from '#validators/tool'
 import type { HttpContext } from '@adonisjs/core/http'
-import string from '@adonisjs/core/helpers/string'
-import { Providers } from '../../types/providers.js'
-import { AllToolsPresenter, SingleToolPresenter } from '../presenters/tool.js'
-import { inject } from '@adonisjs/core'
-import User from '#models/user'
 import { GearsPresenter } from '../presenters/gears.js'
+import Plugin from '#models/plugin'
 import Gear from '#models/gear'
+import string from '@adonisjs/core/helpers/string'
+import User from '#models/user'
+import { AllPluginsPresenter, SinglePluginPresenter } from '../presenters/plugin.js'
+import { inject } from '@adonisjs/core'
 
 @inject()
-export default class ToolsController {
+export default class PluginsController {
   constructor(
-    private allToolsPresenter: AllToolsPresenter,
-    private singleToolPresenter: SingleToolPresenter,
+    private allPluginsPresenter: AllPluginsPresenter,
+    private singlePluginPresenter: SinglePluginPresenter,
     private gearsPresenter: GearsPresenter
   ) {}
 
   async index({ inertia }: HttpContext) {
-    const tools = await Tool.query().where('status', 'approved').orderBy('name', 'asc')
+    const plugins = await Plugin.query().where('status', 'approved').orderBy('name', 'asc')
 
-    const randomGears = await Gear.query().limit(5).orderByRaw('random()')
+    const randomGears = await Gear.query().limit(6).orderByRaw('random()')
 
-    return inertia.render('home', {
-      tools: this.allToolsPresenter.json(tools),
+    return inertia.render('plugins', {
+      plugins: this.allPluginsPresenter.json(plugins),
       randomGears: this.gearsPresenter.json(randomGears),
     })
   }
 
   async show({ params, inertia }: HttpContext) {
-    const tool = await Tool.query().where('slug', params.slug).firstOrFail()
+    const plugin = await Plugin.query().where('slug', params.slug).firstOrFail()
 
-    const randomTools = await Tool.query()
+    const randomPlugins = await Plugin.query()
       .where('status', 'approved')
       .limit(2)
       .orderByRaw('random()')
 
     const randomGears = await Gear.query().limit(2).orderByRaw('random()')
 
-    return inertia.render('tools/single', {
-      tool: this.singleToolPresenter.json(tool),
-      randomTools: this.allToolsPresenter.json(randomTools),
+    return inertia.render('plugins/single', {
+      plugin: this.singlePluginPresenter.json(plugin),
+      randomPlugins: this.allPluginsPresenter.json(randomPlugins),
       randomGears: this.gearsPresenter.json(randomGears),
     })
   }
@@ -52,14 +50,11 @@ export default class ToolsController {
       return response.unauthorized('You must be logged in to create a tool')
     }
 
-    const payload = await request.validateUsing(createToolValidator)
+    const payload = request.all()
 
-    await Tool.create({
+    await Plugin.create({
       ...payload,
-      prices: JSON.stringify(payload.prices) as unknown as ('free' | 'paid')[],
-      providers: JSON.stringify(payload.providers) as unknown as Providers,
       tags: JSON.stringify(payload.tags) as unknown as string[],
-      screenshots: JSON.stringify(payload.screenshots) as unknown as string[],
       slug: string.slug(payload.name, { lower: true }),
       status: 'pending',
       userId: user,
@@ -81,7 +76,7 @@ export default class ToolsController {
       return response.redirect('/login')
     }
 
-    const tool = await Tool.findOrFail(params.id)
+    const tool = await Plugin.findOrFail(params.id)
 
     await tool.merge(request.all()).save()
 

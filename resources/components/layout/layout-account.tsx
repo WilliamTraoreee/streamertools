@@ -29,6 +29,13 @@ export function LayoutAccount(props: Props) {
           >
             My tools
           </Button>
+          <Button
+            variant="transparent"
+            link="/account/plugins"
+            className="w-full !justify-start text-start"
+          >
+            My plugins
+          </Button>
         </div>
         {user.role === 'admin' && (
           <div>
@@ -37,6 +44,9 @@ export function LayoutAccount(props: Props) {
             </Button>
             <Button variant="transparent" link="/admin/gears" className="w-full !justify-start">
               Admin gears
+            </Button>
+            <Button variant="transparent" link="/admin/plugins" className="w-full !justify-start">
+              Admin plugins
             </Button>
           </div>
         )}

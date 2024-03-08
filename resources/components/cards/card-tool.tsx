@@ -13,7 +13,7 @@ export function CardTool(props: Props) {
   return (
     <div className="p-4 bg-dark border-gradient">
       <div className="gap-6 flex items-center mb-6">
-        <Link href={`tools/${tool.slug}`}>
+        <Link href={`/tools/${tool.slug}`}>
           <img
             src={tool.iconUrl}
             alt={tool.name}
@@ -39,7 +39,7 @@ export function CardTool(props: Props) {
         </Button>
         <Button link={tool.url} external className="flex-1">
           <span className="i-ri:links-line"></span>
-          Use this tool
+          Use it
         </Button>
       </div>
     </div>

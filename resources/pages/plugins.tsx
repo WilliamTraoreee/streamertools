@@ -1,35 +1,35 @@
-import { CardTool } from '../components/cards/card-tool'
-import type { Tool } from '../../types/tool'
 import { Button } from '../components/button'
 import { Head } from '@inertiajs/react'
-import type { Gear } from '../../types/gear'
+import type { Plugin } from '../../types/plugin'
 import CardGear from '../components/cards/card-gear'
+import type { Gear } from '../../types/gear'
+import { CardPlugin } from '../components/cards/card-plugin'
 
 interface Props {
-  tools: Tool[]
+  plugins: Plugin[]
   randomGears: Gear[]
 }
 
-export default function Home(props: Props) {
-  const { tools, randomGears } = props
+export default function Plugins(props: Props) {
+  const { plugins, randomGears } = props
 
   return (
     <>
       <Head>
-        <title>Tools</title>
+        <title>Plugins</title>
       </Head>
 
       <div className="pb-10 w-full" lg="w-1/2 py-40">
         <h1 className="font-black text-4xl mb-5" lg="text-6xl">
-          Discover the best tools to upgrade your stream.
+          Discover the best OBS plugins to upgrade your stream.
         </h1>
         <h2 className="text-gray mb-10">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non lacus at orci commodo
           bibendum a non mauris. Sed pellentesque nisi sit amet erat tempor consectetur.
         </h2>
-        <Button link="/tools/add">
+        <Button link="/plugins/add">
           <span className="i-ri:add-line"></span>
-          Submit a tool
+          Submit a plugin{' '}
         </Button>
       </div>
 
@@ -39,8 +39,8 @@ export default function Home(props: Props) {
         lg="grid-cols-3"
         xl="grid-cols-4"
       >
-        {tools.slice(0, 4).map((tool) => (
-          <CardTool key={tool.id} tool={tool} />
+        {plugins.slice(0, 4).map((plugin) => (
+          <CardPlugin key={plugin.id} plugin={plugin} />
         ))}
       </div>
 
@@ -50,7 +50,7 @@ export default function Home(props: Props) {
           className="grid grid-cols-1 gap-10 mb-5"
           sm="grid-cols-2"
           lg="grid-cols-3"
-          xl="grid-cols-6"
+          xl="grid-cols-5"
         >
           {randomGears.map((gear) => (
             <CardGear key={gear.id} gear={gear} />
@@ -64,9 +64,8 @@ export default function Home(props: Props) {
       </div>
 
       <div className="grid grid-cols-1 gap-10" sm="grid-cols-2" lg="grid-cols-3" xl="grid-cols-4">
-        {tools.slice(5, 9999).map((tool) => (
-          <CardTool key={tool.id} tool={tool} />
-        ))}
+        {plugins.length >= 5 &&
+          plugins.slice(5, 9999).map((plugin) => <CardPlugin key={plugin.id} plugin={plugin} />)}
       </div>
     </>
   )

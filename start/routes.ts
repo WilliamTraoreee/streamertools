@@ -9,13 +9,16 @@ const AdminController = () => import('#controllers/admin_controller')
 const AmazonController = () => import('#controllers/amazon_controller')
 const GearsController = () => import('#controllers/gears_controller')
 const GearCategoriesController = () => import('#controllers/gear_categories_controller')
+const PluginsController = () => import('#controllers/plugins_controller')
 
 router
   .group(() => {
     router.get('/tools/add', ({ inertia }) => inertia.render('tools/add'))
+    router.get('/plugins/add', ({ inertia }) => inertia.render('plugins/add'))
     router.post('/upload', [UploadController, 'send'])
     router.post('/logout', [AuthController, 'disconnect'])
     router.get('/account/tools', [AccountsController, 'tools'])
+    router.get('/account/plugins', [AccountsController, 'plugins'])
   })
   .use(middleware.auth())
 
@@ -29,6 +32,8 @@ router
   .group(() => {
     router.get('/admin/tools', [AdminController, 'tools'])
     router.post('/admin/tools/:id', [ToolsController, 'update'])
+    router.get('/admin/plugins', [AdminController, 'plugins'])
+    router.post('/admin/plugins/:id', [PluginsController, 'update'])
     router.get('admin/gears/add', [GearsController, 'addPage'])
     router.get('admin/gears', [GearsController, 'admin'])
     router.post('gear-category', [GearCategoriesController, 'create'])
@@ -42,10 +47,13 @@ router
 
 router.post('/amazon/search', [AmazonController, 'search'])
 router.get('/', [ToolsController, 'index'])
+router.get('/plugins', [PluginsController, 'index'])
 router.get('/tools/:slug', [ToolsController, 'show'])
+router.get('/plugins/:slug', [PluginsController, 'show'])
 router.get('/auth/twitch', [AuthController, 'redirect'])
 router.get('/auth/twitch/callback', [AuthController, 'callback'])
 router.get('/user/me', [AuthController, 'me'])
 router.post('/tools', [ToolsController, 'create'])
+router.post('/plugins', [PluginsController, 'create'])
 router.get('/gears', [GearsController, 'index'])
 router.get('/gears/category/:id', [GearsController, 'categoryPage'])
