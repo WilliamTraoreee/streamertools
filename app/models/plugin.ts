@@ -25,7 +25,7 @@ export default class Plugin extends BaseModel {
   @column()
   declare url: string
 
-  @column()
+  @column({ prepare: (value) => JSON.stringify(value) })
   declare tags: string[]
 
   @column()

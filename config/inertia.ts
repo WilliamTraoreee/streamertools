@@ -15,11 +15,15 @@ export default defineConfig({
     user: async (ctx) => {
       const user = ctx.session.get('authenticated_user')
 
+      console.log('user', user)
+
       if (!user) {
         return null
       }
 
-      const findUser = await User.findByOrFail('id', user)
+      console.log('user2', user)
+
+      const findUser = await User.findBy('id', user)
       return findUser ? findUser : null
     },
   },

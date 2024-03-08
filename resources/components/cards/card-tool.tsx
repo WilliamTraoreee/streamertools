@@ -28,7 +28,7 @@ export function CardTool(props: Props) {
           </a>
         </div>
       </div>
-      <p className="font-medium mb-6">{tool.description}</p>
+      <p className="font-medium mb-6 line-clamp-3 h-[4.6rem]">{tool.description}</p>
       <div className="flex gap-1 mb-6">
         <PriceTag prices={tool.prices} />
       </div>

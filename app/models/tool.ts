@@ -26,16 +26,16 @@ export default class Tool extends BaseModel {
   @column()
   declare url: string
 
-  @column()
+  @column({ prepare: (value) => JSON.stringify(value) })
   declare prices: ('free' | 'paid')[]
 
-  @column()
+  @column({ prepare: (value) => JSON.stringify(value) })
   declare providers: Providers
 
-  @column()
+  @column({ prepare: (value) => JSON.stringify(value) })
   declare tags: string[]
 
-  @column()
+  @column({ prepare: (value) => JSON.stringify(value) })
   declare screenshots: string[]
 
   @column()

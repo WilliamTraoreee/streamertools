@@ -54,7 +54,6 @@ export default class PluginsController {
 
     await Plugin.create({
       ...payload,
-      tags: JSON.stringify(payload.tags) as unknown as string[],
       slug: string.slug(payload.name, { lower: true }),
       status: 'pending',
       userId: user,

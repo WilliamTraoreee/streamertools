@@ -2,7 +2,6 @@ import Tool from '#models/tool'
 import { createToolValidator } from '#validators/tool'
 import type { HttpContext } from '@adonisjs/core/http'
 import string from '@adonisjs/core/helpers/string'
-import { Providers } from '../../types/providers.js'
 import { AllToolsPresenter, SingleToolPresenter } from '../presenters/tool.js'
 import { inject } from '@adonisjs/core'
 import User from '#models/user'
@@ -56,10 +55,6 @@ export default class ToolsController {
 
     await Tool.create({
       ...payload,
-      prices: JSON.stringify(payload.prices) as unknown as ('free' | 'paid')[],
-      providers: JSON.stringify(payload.providers) as unknown as Providers,
-      tags: JSON.stringify(payload.tags) as unknown as string[],
-      screenshots: JSON.stringify(payload.screenshots) as unknown as string[],
       slug: string.slug(payload.name, { lower: true }),
       status: 'pending',
       userId: user,

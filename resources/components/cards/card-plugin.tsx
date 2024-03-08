@@ -28,7 +28,7 @@ export function CardPlugin(props: Props) {
           </a>
         </div>
       </div>
-      <p className="font-medium mb-6">{plugin.description}</p>
+      <p className="font-medium mb-6 line-clamp-3 h-[4.6rem]">{plugin.description}</p>
       <div className="flex gap-1">
         <Button link={`/plugins/${plugin.slug}`} variant="dark" className="flex-1">
           <span className="i-ri:information-2-line"></span>
