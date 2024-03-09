@@ -6,6 +6,10 @@ export default class LoggedinMiddleware {
   async handle(ctx: HttpContext, next: NextFn) {
     const authenticatedUserId = ctx.session.get('authenticated_user')
 
+    if (!authenticatedUserId) {
+      return await next()
+    }
+
     const user = await User.findBy('id', authenticatedUserId)
 
     if (user) {

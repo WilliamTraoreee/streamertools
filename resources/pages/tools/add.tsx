@@ -6,6 +6,7 @@ import TagInput from '../../components/forms/tag-input'
 import ProviderSelect from '../../components/forms/provider-select'
 import { PPUploader } from '../../components/forms/pp-uploader'
 import { MultipleImageUploader } from '../../components/forms/multiple-image-uploader'
+import PriceSelect from '../../components/forms/price-select'
 
 export default function CreateTool() {
   const { data, setData, post, errors } = useForm({
@@ -74,6 +75,7 @@ export default function CreateTool() {
         />
 
         <TagInput label="Tags" currentTags={[]} onTagChange={(tags) => setData('tags', tags)} />
+        <PriceSelect onPriceChange={(prices) => setData('prices', prices)} label="Price" />
         <MultipleImageUploader
           onImagesChange={(urls) => setData('screenshots', urls)}
           label="Screenshots"

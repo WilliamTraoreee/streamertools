@@ -31,7 +31,7 @@ export default function ProviderSelect(props: Props) {
           {label && (
             <span className={`block text-sm font-medium mb-2 ${labelClassName}`}>{label}</span>
           )}
-          <div className="border-gradient bg-dark h-14 flex p-3 items-center gap-1">
+          <div className={`border-gradient bg-dark h-14 flex p-3 items-center gap-1`}>
             {providers.map((provider) => (
               <span
                 key={provider + 'list'}
