@@ -1,6 +1,7 @@
 import { PluginLine } from '../../components/table/plugin-line'
 import type { Plugin } from '../../../types/plugin'
 import { LayoutAccount } from '../../components/layout/layout-account'
+import { Head } from '@inertiajs/react'
 
 interface Props {
   plugins: {
@@ -15,6 +16,9 @@ export default function Adminplugins(props: Props) {
 
   return (
     <LayoutAccount>
+      <Head>
+        <title>All plugins</title>
+      </Head>
       <h1 className="text-4xl font-black mb-10" lg="text-6xl">
         All plugins
       </h1>

@@ -16,7 +16,28 @@ export default function Plugins(props: Props) {
   return (
     <>
       <Head>
-        <title>Plugins</title>
+        <title>OBS Plugins</title>
+        <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"></link>
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <meta name="description" content="Le blog qui décomplexe les introverti.e.s." />
+        <link rel="canonical" href="https://streamertools.app/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="OBS Plugins | Streamertools" />
+        <meta property="og:description" content="All the tools you need to step up your stream" />
+        <meta property="og:url" content="https://streamertools.app/" />
+        <meta property="og:site_name" content="OBS Plugins | Streamertools" />
+        <meta
+          property="og:image"
+          content="https://streamertools.s3.eu-central-1.amazonaws.com/og.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@willtraore" />
       </Head>
 
       <div className="pb-10 w-full" lg="w-1/2 py-40">

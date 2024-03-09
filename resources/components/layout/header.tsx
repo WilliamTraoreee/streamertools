@@ -59,6 +59,7 @@ export function Header(props: Props) {
         </nav>
 
         <button
+          name="menu"
           className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-white"
           lg="hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}

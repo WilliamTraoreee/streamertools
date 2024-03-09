@@ -1,6 +1,7 @@
 import { ToolLine } from '../../components/table/tool-line'
 import type { Tool } from '../../../types/tool'
 import { LayoutAccount } from '../../components/layout/layout-account'
+import { Head } from '@inertiajs/react'
 
 interface Props {
   tools: {
@@ -15,6 +16,9 @@ export default function AdminTools(props: Props) {
 
   return (
     <LayoutAccount>
+      <Head>
+        <title>All tools</title>
+      </Head>
       <h1 className="text-4xl font-black mb-10" lg="text-6xl">
         All tools
       </h1>

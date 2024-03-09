@@ -2,7 +2,7 @@ import { Modal } from '../../components/modal'
 import { Button } from '../../components/button'
 import { LayoutAccount } from '../../components/layout/layout-account'
 import { Input } from '../../components/forms/input'
-import { useForm } from '@inertiajs/react'
+import { Head, useForm } from '@inertiajs/react'
 import { useState, type FormEvent } from 'react'
 import type { Gear } from '../../../types/gear'
 import type { GearCategory } from '../../../types/gear_category'
@@ -38,6 +38,9 @@ export default function Gears(props: Props) {
 
   return (
     <LayoutAccount>
+      <Head>
+        <title>Gears</title>
+      </Head>
       <div className="flex items-center justify-between mb-10">
         <h1 className="text-4xl font-black mb-10" lg="text-6xl">
           Gears

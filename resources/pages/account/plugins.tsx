@@ -3,6 +3,7 @@ import type { Tool } from '../../../types/tool'
 import { CardTool } from '../../components/cards/card-tool'
 import { LayoutAccount } from '../../components/layout/layout-account'
 import { CardPlugin } from '../../components/cards/card-plugin'
+import { Head } from '@inertiajs/react'
 
 interface Props {
   plugins: {
@@ -17,6 +18,9 @@ export default function Tools(props: Props) {
 
   return (
     <LayoutAccount>
+      <Head>
+        <title>My plugins</title>
+      </Head>
       <div className="w-full mb-10">
         <div className="flex justify-between items-center gap-6 mb-10">
           <h1 className="text-4xl font-black" lg="text-6xl">
