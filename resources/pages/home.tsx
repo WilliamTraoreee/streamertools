@@ -22,12 +22,18 @@ export default function Home(props: Props) {
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta name="description" content="Le blog qui décomplexe les introverti.e.s." />
+        <meta
+          name="description"
+          content="Find the best tools all in one place to boost your streaming experience!"
+        />
         <link rel="canonical" href="https://streamertools.app/" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Tools | Streamertools" />
-        <meta property="og:description" content="All the tools you need to step up your stream" />
+        <meta
+          property="og:description"
+          content="Find the best tools all in one place to boost your streaming experience!"
+        />
         <meta property="og:url" content="https://streamertools.app/" />
         <meta property="og:site_name" content="Tools | Streamertools" />
         <meta
@@ -40,13 +46,13 @@ export default function Home(props: Props) {
         <meta name="twitter:site" content="@willtraore" />
       </Head>
 
-      <div className="pb-10 w-full" lg="w-1/2 py-40">
+      <div className="pb-10 w-full" lg="w-3/5 py-40">
         <h1 className="font-black text-4xl mb-5" lg="text-6xl">
-          Discover the best tools to upgrade your stream.
+          Find the best tools all in one place to boost your streaming experience!
         </h1>
         <h2 className="text-gray mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non lacus at orci commodo
-          bibendum a non mauris. Sed pellentesque nisi sit amet erat tempor consectetur.
+          Check out a bunch of must-have tools to make your streaming experience easier. Save time
+          and find solutions hassle-free!
         </h2>
         <Button link="/tools/add">
           <span className="i-ri:add-line"></span>
@@ -66,7 +72,9 @@ export default function Home(props: Props) {
       </div>
 
       <div className="p-10 bg-black rounded-xl mb-10">
-        <h3 className="font-black text-2xl mb-5 text-center">Our recommanded streaming products</h3>
+        <h3 className="font-black text-2xl mb-5 text-center">
+          The latest product recommendations for your stream
+        </h3>
         <div
           className="grid grid-cols-1 gap-10 mb-5"
           sm="grid-cols-2"

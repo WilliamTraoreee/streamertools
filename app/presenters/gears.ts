@@ -19,7 +19,13 @@ export class GearsByCategoryPresenter {
   json(gears: Gear[], categories: GearCategory[]) {
     const gearByCategory = categories.reduce(
       (acc, category) => {
-        acc[category.slug] = gears.filter((gear) => gear.gearCategory === category.slug)
+        acc[category.slug] = gears
+          .filter((gear) => gear.gearCategory === category.slug)
+          .sort(
+            (a, b) =>
+              Number.parseFloat(a.price.replace(' ', '').replace('€', '').replace(',', '.')) -
+              Number.parseFloat(b.price.replace(' ', '').replace('€', '').replace(',', '.'))
+          )
         return acc
       },
       {} as { [key: string]: Gear[] }

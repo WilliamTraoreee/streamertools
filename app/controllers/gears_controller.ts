@@ -16,7 +16,7 @@ export default class GearsController {
 
     const categories = await GearCategory.all()
 
-    return inertia.render('gears/all', {
+    return inertia.render('gears', {
       gears: this.gearByCategoryPresenter.json(gears, categories),
       categories,
     })

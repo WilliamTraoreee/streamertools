@@ -11,12 +11,12 @@ export default function Login() {
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta name="description" content="Le blog qui décomplexe les introverti.e.s." />
+        <meta name="description" content="Upgrade your stream, join us today!" />
         <link rel="canonical" href="https://streamertools.app/" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Login | Streamertools" />
-        <meta property="og:description" content="All the tools you need to step up your stream" />
+        <meta property="og:description" content="Upgrade your stream, join us today!" />
         <meta property="og:url" content="https://streamertools.app/" />
         <meta property="og:site_name" content="Login | Streamertools" />
         <meta
@@ -34,10 +34,12 @@ export default function Login() {
         lg="w-[800px]"
       >
         <h1 className="text-4xl font-black mb-5" lg="text-7xl">
-          Join us and upgrade your stream
+          Upgrade your stream, join us today!
         </h1>
         <h2 className="text-gray mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Keep up with the latest tools, OBS plugins and product updates
+          <br />
+          for your stream space-all in one spot, and it's all free.
         </h2>
         <Button link="/auth/twitch" external sameWindow className="mb-10" variant="twitch">
           <span className="i-ri:twitch-fill"></span>

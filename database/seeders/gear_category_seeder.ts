@@ -7,54 +7,53 @@ export default class extends BaseSeeder {
       {
         name: 'USB Microphones',
         slug: 'usb-microphones',
-        title: 'USB Microphones',
+        title: 'USB Microphones: The Must-Haves!',
         description:
-          'Discover the best USB microphone on the market to step up your streaming and podcasting game.',
+          "The microphone is the backbone of your stream! To ensure your streams sound great with audio quality your viewers will appreciate, check out these easy-to-use and set up USB microphones. They're versatile and a must-have.",
       },
       {
         name: 'XLR Microphones',
         slug: 'xlr-microphones',
-        title: 'XLR Microphonesw',
+        title: 'XLR Microphones: for more precision',
         description:
-          'Discover the best XLR microphone on the market to step up your streaming and podcasting game.',
+          'For those seeking top-notch audio quality with precision and clarity, look no further than this curated selection of XLR microphones!',
       },
       {
         name: 'Audio Interfaces',
         slug: 'audio-interfaces',
-        title: 'Audio Interfaces',
+        title: 'Audio Interfaces to connect your microphone and instruments',
         description:
-          'Discover the best audio interface on the market to step up your streaming and podcasting game.',
+          "Audio interfaces allow you to connect external audio equipment to a computer for recording or streaming content. Whether you're a traditional streamer, musician, or podcaster, it's an essential tool.",
       },
       {
-        name: 'Headphoness',
+        name: 'Headphones',
         slug: 'headphones',
-        title: 'Headphones',
+        title: 'Headphones: For a cozy listening experience.',
         description:
-          'Discover the best headphones on the market to step up your streaming and podcasting game.',
+          'Designed to please your ears and ensure comfort for your head, our selection of headphones caters to all budgets and needs, featuring the favorites of streamers everywhere.',
       },
       {
         name: 'Webcams',
         slug: 'webcams',
-        title: 'Webcams',
+        title: 'Webcams: An alternative to the camera',
         description:
-          'Discover the best webcam on the market to step up your streaming and podcasting game.',
+          'Come here for quality webcams at affordable prices that will satisfy you with good value for money.',
       },
       {
         name: 'Cameras',
         slug: 'cameras',
-        title: 'Cameras',
-        description:
-          'Discover the best camera on the market to step up your streaming and podcasting game.',
+        title: 'Cameras: For the best video quality',
+        description: 'Check out the best cameras out there to level up your streaming experience.',
       },
       {
         name: 'Camera stands',
         slug: 'camera-stands',
-        title: 'Camera stands',
+        title: 'Camera stands: for stability',
         description:
-          'Discover the best camera stand on the market to step up your streaming and podcasting game.',
+          'Your camera stand is a highly useful accessory that allows you to maintain, stabilize, and reposition your camera however you like.',
       },
       {
-        name: 'Cature cards',
+        name: 'Capture cards',
         slug: 'capture-cards',
         title: 'Capture cards',
         description:
@@ -63,9 +62,16 @@ export default class extends BaseSeeder {
       {
         name: 'Lights',
         slug: 'lights',
-        title: 'Lights',
+        title: 'Lights: the cherry on top of your stream',
         description:
-          'Discover the best light on the market to step up your streaming and podcasting game.',
+          "Lighting is the finishing touch for a stream, making the content more engaging and enjoyable for viewers. Don't underestimate its importance! Explore the best lighting options here to elevate your stream.",
+      },
+      {
+        name: 'Microphone stands',
+        slug: 'microphone-stands',
+        title: 'Microphone stands: blablabla',
+        description:
+          'Discover the best microphone stands on the market to step up your streaming and podcasting game.',
       },
     ])
   }
