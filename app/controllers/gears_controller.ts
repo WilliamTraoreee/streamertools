@@ -73,4 +73,21 @@ export default class GearsController {
       category,
     })
   }
+
+  async export({ response }: HttpContext) {
+    const gears = await Gear.all()
+
+    return response.json(
+      gears.map((gear) => {
+        return {
+          name: gear.name,
+          description: gear.description,
+          price: gear.price,
+          gearCategory: gear.gearCategory,
+          image: gear.image,
+          link: gear.link,
+        }
+      })
+    )
+  }
 }

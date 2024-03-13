@@ -69,9 +69,9 @@ export default class extends BaseSeeder {
       {
         name: 'Microphone stands',
         slug: 'microphone-stands',
-        title: 'Microphone stands: blablabla',
+        title: 'Microphone stands: for optimal positioning and comfort',
         description:
-          'Discover the best microphone stands on the market to step up your streaming and podcasting game.',
+          'Whatever your needs, a microphone stand will allow you to adjust, position, and place your microphone as desired at a suitable distance from a sound source.',
       },
     ])
   }
