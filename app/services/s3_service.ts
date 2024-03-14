@@ -1,7 +1,7 @@
-import { S3 } from '@aws-sdk/client-s3'
+import { S3Client } from '@aws-sdk/client-s3'
 import env from '#start/env'
 
-const client = new S3({
+const client = new S3Client({
   region: env.get('S3_REGION'),
   endpoint: env.get('S3_ENDPOINT'),
   credentials: {

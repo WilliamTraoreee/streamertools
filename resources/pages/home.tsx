@@ -17,7 +17,6 @@ export default function Home(props: Props) {
     <>
       <Head>
         <title>Tools</title>
-        <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"></link>
         <meta
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"

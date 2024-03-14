@@ -2,6 +2,7 @@ import { Link, useForm } from '@inertiajs/react'
 import { Button } from '../button'
 import { Popover } from '../popover'
 import { useState } from 'react'
+import logo from '../../assets/streamertools.svg'
 
 interface Props {
   user: any
@@ -20,7 +21,7 @@ export function Header(props: Props) {
       lg="px-10"
     >
       <Link href="/">
-        <img src="/assets/streamertools.svg" alt="StreamerTools" loading="lazy" />
+        <img src={logo} alt="StreamerTools" loading="lazy" />
       </Link>
       <div className="flex items-center gap-5" lg="gap-10">
         <nav

@@ -18,10 +18,11 @@ export default class UploadService {
         Bucket: env.get('S3_BUCKET_NAME'),
         Key: fileName,
         Body: f,
+        ACL: 'public-read',
       })
     )
 
-    const url = `https://${env.get('S3_BUCKET_NAME')}.s3.${env.get('S3_REGION')}.amazonaws.com/${fileName}`
+    const url = `https://${env.get('S3_BUCKET_NAME')}.fra1.cdn.digitaloceanspaces.com/${fileName}`
 
     return { url }
   }
