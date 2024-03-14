@@ -1,10 +1,11 @@
 import { Link } from '@inertiajs/react'
+import logo from '../../assets/streamertools.svg'
 
 export function Footer() {
   return (
     <footer className="flex justify-center items-center flex-col text-center gap-10 pt-20 pb-10">
       <Link href="/" classID="mb-5 block">
-        <img src="/assets/streamertools.svg" alt="StreamerTools" loading="lazy" />
+        <img src={logo} alt="StreamerTools" loading="lazy" />
       </Link>
       <p className="text-sm font-medium">
         Created by{' '}

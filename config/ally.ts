@@ -7,7 +7,7 @@ const allyConfig = defineConfig({
     clientId: env.get('TWITCH_CLIENT_ID'),
     clientSecret: env.get('TWITCH_CLIENT_SECRET'),
     callbackUrl: env.get('TWITCH_CALLBACK_URL'),
-    scopes: ['user:read:email', 'channel:manage:videos', 'clips:edit'],
+    scopes: ['user:read:email'],
   }),
 })
 
