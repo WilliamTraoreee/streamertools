@@ -66,7 +66,9 @@ export function PPUploader(props: Props) {
     <div>
       {label && <span className={`block text-sm font-medium mb-2 ${labelClassName}`}>{label}</span>}
       <div className="flex gap-5 items-center">
-        {currentImageFile && <img src={currentImageFile} className="w-30 h-30 rounded-xl" />}
+        {currentImageFile && (
+          <img src={currentImageFile} className="w-30 h-30 rounded-xl" loading="lazy" />
+        )}
         <Modal
           open={open}
           onOpenChange={(isOpen) => setOpen(isOpen)}

@@ -81,6 +81,7 @@ export function Header(props: Props) {
                 src={user.providerData.avatar_url}
                 alt={user.providerData.username}
                 className="w-8 h-8 rounded cursor-pointer"
+                loading="lazy"
               />
             }
           >

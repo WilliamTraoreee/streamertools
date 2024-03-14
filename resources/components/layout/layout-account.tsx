@@ -18,6 +18,7 @@ export function LayoutAccount(props: Props) {
             src={user.providerData.avatar_url}
             alt={user.providerData.username}
             className="w-10 h-10 rounded-lg"
+            loading="lazy"
           />
           <p className="font-medium">{user.providerData.username}</p>
         </div>

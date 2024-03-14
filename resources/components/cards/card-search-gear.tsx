@@ -35,7 +35,7 @@ export default function CardSearchGear(props: Props) {
   return (
     <div className="p-4 bg-dark border-gradient">
       <div className="w-full aspect-square rounded bg-white p-5 mb-3">
-        <img src={search.image} className="w-full object-contain aspect-square" />
+        <img src={search.image} className="w-full object-contain aspect-square" loading="lazy" />
       </div>
       <h3 className="font-medium truncate">{search.title}</h3>
       <h4 className="text-green mb-3">{search.price}</h4>

@@ -99,6 +99,7 @@ export function MultipleImageUploader(props: Props) {
                       src={URL.createObjectURL(file)}
                       key={index}
                       className="w-full h-auto rounded"
+                      loading="lazy"
                     />
                   ))}
                 </div>
@@ -115,7 +116,7 @@ export function MultipleImageUploader(props: Props) {
         {currentImagesFile && (
           <div className="grid grid-6 grid-cols-1 gap-3" lg="grid-cols-2">
             {currentImagesFile.map((url, index) => (
-              <img src={url} key={index} className="w-full h-auto rounded-lg" />
+              <img src={url} key={index} className="w-full h-auto rounded-lg" loading="lazy" />
             ))}
           </div>
         )}

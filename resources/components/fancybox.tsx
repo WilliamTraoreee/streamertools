@@ -43,7 +43,7 @@ export function FancyBox(props: Props) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <img src={image} alt="image" className="rounded-lg" />
+        <img src={image} alt="image" className="rounded-lg" loading="lazy" />
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="w-screen h-screen bg-black/60 fixed top-0 left-0 backdrop-blur z-[990]" />
@@ -52,7 +52,7 @@ export function FancyBox(props: Props) {
           className="fixed top-1/2 left-1/2  w-fit z-[999]"
         >
           <motion.div variants={modalAnimation} initial="initial" animate="in" exit="out">
-            <img src={image} alt="image" />
+            <img src={image} alt="image" loading="lazy" />
           </motion.div>
         </Dialog.Content>
       </Dialog.Portal>
