@@ -7,10 +7,16 @@ import unocss from 'unocss/vite'
 export default defineConfig({
   plugins: [
     react(),
+    // @ts-ignore
     unocss(),
-    inertia({}),
+    inertia({
+      ssr: {
+        enabled: true,
+        entrypoint: 'resources/ssr.tsx',
+      },
+    }),
     adonisjs({
-      entrypoints: ['resources/css/app.css', 'resources/js/app.js'],
+      entrypoints: ['resources/css/app.css', 'resources/app.tsx'],
       reload: ['resources/views/**/*.edge'],
     }),
   ],

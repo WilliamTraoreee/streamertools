@@ -15,8 +15,7 @@ export default function Home(props: Props) {
 
   return (
     <>
-      <Head>
-        <title>Tools</title>
+      <Head title="Tools">
         <meta
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"

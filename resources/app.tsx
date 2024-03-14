@@ -6,6 +6,8 @@ import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import { Layout } from './components/layout/layout'
 
+import.meta.glob(['./assets/**'])
+
 const appName = import.meta.env.VITE_APP_NAME || 'StreamerTools'
 
 createInertiaApp({
@@ -14,8 +16,8 @@ createInertiaApp({
   title: (title) => `${title} | ${appName}`,
 
   resolve: (name) => {
-    const pages = import.meta.glob('./pages/**/*.tsx', { eager: true })
-    return pages[`./pages/${name}.tsx`]
+    const pages = import.meta.glob('./pages/**/*.tsx')
+    return pages[`./pages/${name}.tsx`]()
   },
 
   setup({ el, App, props }) {

@@ -7,12 +7,9 @@
 
   <link rel="shortcut icon" href="{{ asset('resources/assets/favicon.ico') }}" type="image/x-icon"></link>
 
-  <title inertia>StreamerTools</title>
-
-
   @viteReactRefresh()
-  @vite(['resources/app.tsx'])
   @inertiaHead()
+  @vite(['resources/app.tsx', `resources/pages/${page.component}.tsx`])
 </head>
 
 <body>

@@ -4,7 +4,7 @@ body {
   font-family: 'Satoshi', sans-serif;
   color: #fff;
   background-color: #111314;
-  background-image: url('/assets/background.webp');
+  background-image: url('../assets/background.webp');
   background-size: contain;
   background-position: top right;
   background-repeat: no-repeat;
