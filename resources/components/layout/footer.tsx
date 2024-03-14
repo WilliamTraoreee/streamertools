@@ -27,7 +27,7 @@ export function Footer() {
           className="underline"
           hover="text-secondary-normal"
         >
-          Github
+          GitHub
         </a>
       </p>
     </footer>
