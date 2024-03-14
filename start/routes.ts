@@ -11,6 +11,8 @@ const GearsController = () => import('#controllers/gears_controller')
 const GearCategoriesController = () => import('#controllers/gear_categories_controller')
 const PluginsController = () => import('#controllers/plugins_controller')
 
+router.get('health', ({ response }) => response.noContent())
+
 router
   .group(() => {
     router.get('/tools/add', ({ inertia }) => inertia.render('tools/add'))
