@@ -8,7 +8,7 @@ body {
   background-size: contain;
   background-position: top right;
   background-repeat: no-repeat;
-  width: 100dvw;
+  width: 100%;
   height: 100dvh;
 }
 
