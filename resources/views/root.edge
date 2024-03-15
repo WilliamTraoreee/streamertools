@@ -7,6 +7,8 @@
 
   <link rel="shortcut icon" href="{{ asset('resources/assets/favicon.ico') }}" type="image/x-icon"></link>
 
+  <script defer data-domain="streamertools.app" src="https://plausible.io/js/script.js"></script>
+
   @viteReactRefresh()
   @inertiaHead()
   @vite(['resources/app.tsx', `resources/pages/${page.component}.tsx`])
