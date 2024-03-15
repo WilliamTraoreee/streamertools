@@ -38,7 +38,7 @@ export default function CategoryGear(props: Props) {
         <meta name="twitter:site" content="@willtraore" />
       </Head>
       <div>
-        <h1 className="font-black text-4xl mb-5 text-center mb-10" lg="text-6xl">
+        <h1 className="font-black text-4xl mb-5 text-center mb-10" lg="text-6xl mb-15">
           {category.name}
         </h1>
         <div
