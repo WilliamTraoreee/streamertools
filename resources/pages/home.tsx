@@ -4,6 +4,10 @@ import { Button } from '../components/button'
 import { Head } from '@inertiajs/react'
 import type { Gear } from '../../types/gear'
 import CardGear from '../components/cards/card-gear'
+import { PriceFilter } from '../components/filters/price-filter'
+import { useState } from 'react'
+import { ProviderFilter } from '../components/filters/provider-filter'
+import type { Provider } from '../../types/providers'
 
 interface Props {
   tools: Tool[]
@@ -12,6 +16,9 @@ interface Props {
 
 export default function Home(props: Props) {
   const { tools, randomGears } = props
+
+  const [currentPriceFilter, setCurrentPriceFilter] = useState<'free' | 'paid' | 'all'>('all')
+  const [currentProviderFilter, setCurrentProviderFilter] = useState<'all' | Provider>('all')
 
   return (
     <>
@@ -58,15 +65,41 @@ export default function Home(props: Props) {
         </Button>
       </div>
 
+      <div className="w-full flex justify-end mb-5 gap-3">
+        <PriceFilter
+          currentFilter={currentPriceFilter}
+          onFilterChange={(filter) => setCurrentPriceFilter(filter)}
+        />
+        <ProviderFilter
+          currentFilter={currentProviderFilter}
+          onFilterChange={(filter) => setCurrentProviderFilter(filter)}
+        />
+      </div>
+
       <div
         className="grid grid-cols-1 gap-10 mb-10"
         sm="grid-cols-2"
         lg="grid-cols-3"
         xl="grid-cols-4"
       >
-        {tools.slice(0, 4).map((tool) => (
-          <CardTool key={tool.id} tool={tool} />
-        ))}
+        {tools
+          .filter((tool) => {
+            if (currentPriceFilter === 'all') return true
+            if (currentPriceFilter === 'free' && tool.prices.includes('free')) return true
+            if (currentPriceFilter === 'paid' && tool.prices.includes('paid')) return true
+
+            return false
+          })
+          .filter((tool) => {
+            if (currentProviderFilter === 'all') return true
+            if (tool.providers.includes(currentProviderFilter)) return true
+
+            return false
+          })
+          .slice(0, 4)
+          .map((tool) => (
+            <CardTool key={tool.id} tool={tool} />
+          ))}
       </div>
 
       <div className="p-10 bg-black rounded-xl mb-10">
@@ -91,9 +124,24 @@ export default function Home(props: Props) {
       </div>
 
       <div className="grid grid-cols-1 gap-10" sm="grid-cols-2" lg="grid-cols-3" xl="grid-cols-4">
-        {tools.slice(5, 9999).map((tool) => (
-          <CardTool key={tool.id} tool={tool} />
-        ))}
+        {tools
+          .filter((tool) => {
+            if (currentPriceFilter === 'all') return true
+            if (currentPriceFilter === 'free' && tool.prices.includes('free')) return true
+            if (currentPriceFilter === 'paid' && tool.prices.includes('paid')) return true
+
+            return false
+          })
+          .filter((tool) => {
+            if (currentProviderFilter === 'all') return true
+            if (tool.providers.includes(currentProviderFilter)) return true
+
+            return false
+          })
+          .slice(5, 9999)
+          .map((tool) => (
+            <CardTool key={tool.id} tool={tool} />
+          ))}
       </div>
     </>
   )
