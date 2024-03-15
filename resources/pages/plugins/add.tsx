@@ -28,12 +28,18 @@ export default function CreatePlugin() {
           name="robots"
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta name="description" content="Le blog qui décomplexe les introverti.e.s." />
+        <meta
+          name="description"
+          content="You are an OBS plugin creator or you just want to share your favorite plugin."
+        />
         <link rel="canonical" href="https://streamertools.app/" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Add a plugin | Streamertools" />
-        <meta property="og:description" content="All the tools you need to step up your stream" />
+        <meta
+          property="og:description"
+          content="You are an OBS plugin creator or you just want to share your favorite plugin."
+        />
         <meta property="og:url" content="https://streamertools.app/" />
         <meta property="og:site_name" content="Add a plugin | Streamertools" />
         <meta
@@ -47,7 +53,9 @@ export default function CreatePlugin() {
       </Head>
       <div lg="mt-10">
         <h1 className="text-5xl font-black text-center mb-3">Add a new plugin</h1>
-        <h2 className="font-medium text-gray text-center">After submitting, blagbere geiughue</h2>
+        <h2 className="font-medium text-gray text-center">
+          You are an OBS plugin creator or you just want to share your favorite plugin.
+        </h2>
 
         <form
           onSubmit={submit}
