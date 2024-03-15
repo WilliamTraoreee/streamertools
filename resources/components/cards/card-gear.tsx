@@ -17,7 +17,12 @@ export default function CardGear(props: Props) {
       className="p-4 bg-dark border-gradient block"
     >
       <div className="w-full aspect-square rounded bg-white p-5 mb-3">
-        <img src={gear.image} className="w-full object-contain aspect-square" loading="lazy" />
+        <img
+          src={gear.image}
+          className="w-full object-contain aspect-square"
+          loading="lazy"
+          alt={gear.name}
+        />
       </div>
       <Tooltip
         trigger={<h3 className="font-medium truncate">{gear.name}</h3>}

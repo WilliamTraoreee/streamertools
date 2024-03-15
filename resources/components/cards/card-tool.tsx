@@ -13,13 +13,8 @@ export function CardTool(props: Props) {
   return (
     <div className="p-4 bg-dark border-gradient">
       <div className="gap-6 flex items-center mb-6">
-        <Link href={`/tools/${tool.slug}`}>
-          <img
-            src={tool.iconUrl}
-            alt={tool.name}
-            loading="lazy"
-            className="w-12 h-12  rounded-md"
-          />
+        <Link href={`/tools/${tool.slug}`} className="w-12 h-12 rounded-md overflow-hidden">
+          <img src={tool.iconUrl} alt={tool.name} loading="lazy" className="object-fit" />
         </Link>
         <div>
           <h3 className="font-medium text-lg">{tool.name}</h3>
