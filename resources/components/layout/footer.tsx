@@ -3,7 +3,7 @@ import logo from '../../assets/streamertools.svg'
 
 export function Footer() {
   return (
-    <footer className="flex justify-center items-center flex-col text-center gap-10 pt-20 pb-10">
+    <footer className="flex justify-center items-center flex-col text-center gap-10 pt-20 pb-10 w-full">
       <Link href="/" classID="mb-5 block">
         <img src={logo} alt="StreamerTools" loading="lazy" />
       </Link>
