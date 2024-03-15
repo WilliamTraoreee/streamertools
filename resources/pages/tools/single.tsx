@@ -128,7 +128,7 @@ export default function Single(props: Props) {
               </a>
             </div>
           </div>
-          <Button variant="dark" size="large">
+          <Button variant="dark" size="large" link={tool.url} external>
             Visit
           </Button>
         </div>
