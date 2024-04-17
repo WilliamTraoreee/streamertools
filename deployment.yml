@@ -18,6 +18,18 @@ spec:
         containers:
           - name: streamertools
             image: <IMAGE>
+            readinessProbe:
+              httpGet:
+                  path: /health
+                  port: 3000
+              initialDelaySeconds: 5
+              periodSeconds: 5
+            livenessProbe:
+              httpGet:
+                  path: /health
+                  port: 3000
+              initialDelaySeconds: 5
+              periodSeconds: 5
             ports:
               - containerPort: 3000
             env:
@@ -31,6 +43,10 @@ spec:
                 value: "UTC"
               - name: LOG_LEVEL
                 value: "info"
+              - name: SESSION_DRIVE
+                value: "cookie"
+              - name: AMAZON_ASSOCIATE_TAG
+                value: "streamertoo09-21"
               - name: APP_KEY
                 valueFrom:
                   secretKeyRef:
