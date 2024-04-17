@@ -1,0 +1,150 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamertools
+  namespace: streamertools
+  labels:
+      app: streamertools
+spec:
+  selector:
+    matchLabels:
+      app: streamertools
+  replicas: 1
+  template:
+      metadata:
+        labels:
+          app: streamertools
+      spec:
+        containers:
+          - name: streamertools
+            image: <IMAGE>
+            ports:
+              - containerPort: 3000
+            env:
+              - name: HOST
+                value: "0.0.0.0"
+              - name: PORT
+                value: "3000"
+              - name: NODE_ENV
+                value: "production"
+              - name: TZ
+                value: "UTC"
+              - name: LOG_LEVEL
+                value: "info"
+              - name: APP_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: appKey
+              - name: DB_HOST
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: dbHost
+              - name: DB_PORT
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: dbPort
+              - name: DB_USER
+                valueFrom:
+                    secretKeyRef:
+                      name: streamertools-secrets
+                      key: dbUser
+              - name: DB_DATABASE
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: dbDatabase
+              - name: DB_PASSWORD
+                valueFrom:
+                    secretKeyRef:
+                      name: streamertools-secrets
+                      key: dbPassword
+              - name: DO_SSL
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: doSSL
+              - name: TWITCH_CLIENT_ID
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: twitchClientId
+              - name: TWITCH_CLIENT_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: twitchClientSecret
+              - name: TWITCH_CALLBACK_URL
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: twitchCallbackUrl
+              - name: S3_ACCESS_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: s3AccessKey
+              - name: S3_SECRET_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: s3SecretKey
+              - name: S3_ENDPOINT
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: s3Endpoint
+              - name: S3_REGION
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: s3Region
+              - name: S3_BUCKET_NAME
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: s3BucketName
+              - name: AMAZON_ASSOCIATE_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: amazonAssociateKey
+              - name: AMAZON_ASSOCIATE_SECRET_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: streamertools-secrets
+                    key: amazonAssociateSecretKey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamertools
+  namespace: streamertools
+spec:
+  selector:
+    app: streamertools
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 3000
+      protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: streamertools
+  namespace: streamertools
+spec:
+  rules:
+    - host: streamertools.intraweb.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: streamertools
+                port:
+                  number: 3000
