@@ -1,7 +1,5 @@
 FROM node:21-alpine3.18 as base
 
-RUN apk --no-cache add curl
-
 # All deps stage
 FROM base as deps
 WORKDIR /app
