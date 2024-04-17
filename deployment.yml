@@ -164,3 +164,13 @@ spec:
                 name: streamertools
                 port:
                   number: 3000
+    - host: staging.streamertools.app
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: streamertools
+                port:
+                  number: 3000
