@@ -43,7 +43,7 @@ spec:
                 value: "UTC"
               - name: LOG_LEVEL
                 value: "info"
-              - name: SESSION_DRIVE
+              - name: SESSION_DRIVER
                 value: "cookie"
               - name: AMAZON_ASSOCIATE_TAG
                 value: "streamertoo09-21"
