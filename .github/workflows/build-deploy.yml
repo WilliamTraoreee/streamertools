@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY_NAME: registry.digitalocean.com/intraweb
+  IMAGE_NAME: streamertools
+  SMALL_SHA: $(echo $GITHUB_SHA | head -c7)
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Build container image
+        run: |
+          docker build -t ${{ env.REGISTRY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.SMALL_SHA }} .
+
+      - name: Log in to DigitalOcean Container Registry with short-lived credentials
+        run: |
+          doctl registry login --expiry-seconds 1200
+
+      - name: Push image to DigitalOcean Container Registry
+        run: |
+          docker push ${{ env.REGISTRY_NAME }}/${{ env.IMAGE_NAME }}:${{ env.SMALL_SHA }}
+
+      - name: Update deployment file
+        run: |
+          TAG=${{ env.SMALL_SHA }} && sed -i 's|<IMAGE>|${{ env.REGISTRY_NAME }}/${{ env.IMAGE_NAME }}:'${TAG}'|' $GITHUB_WORKSPACE/deployment.yml
+
+      - name: Save DigitalOcean kubeconfig with short-lived credentials
+        run: |
+          doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ secrets.CLUSTER_ID }}
+
+      - name: Deploy to DigitalOcean Kubernetes
+        run: |
+          kubectl apply -f $GITHUB_WORKSPACE/tools/deployment.yml
+      - name: Verify deployment
+        run: |
+          kubectl rollout status deployment/${{ env.IMAGE_NAME }}
